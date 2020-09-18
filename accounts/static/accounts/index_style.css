@@ -51,9 +51,9 @@ body{
     }
 }
 
-h3{
+h5{
   margin-left: 140px; 
-  padding-top: 20px;
+  
 }
 
 .form-group .fas{
@@ -73,7 +73,7 @@ h3{
   text-decoration:none;
   border:none;
   border-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   @include border-radius(4px);
 }
 

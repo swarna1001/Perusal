@@ -5,4 +5,5 @@ app_name = 'accounts'
 
 urlpatterns = [
     url(r'^signin/$', views.index_page, name="index"),
+
 ]

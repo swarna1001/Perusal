@@ -7,7 +7,7 @@ def index_page(request):
     return render(request, 'accounts/index_page.html')
 
 
-def login_view(request):
+def signup_view(request):
 	if request.method == "POST":
 		form = RegisterForm(request.POST)
 		if form.is_valid():
@@ -19,3 +19,6 @@ def login_view(request):
 		form = RegisterForm()
 	
 	return render(request, 'accounts/register.html', {'form':form})
+
+def login_view(request):
+	return render(request, 'accounts/login_page.html')

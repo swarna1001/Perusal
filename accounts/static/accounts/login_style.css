@@ -1,0 +1,46 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  
+}
+
+body{
+  background: #f0fff0;
+}
+
+
+.login-form{
+  width:350px;
+  padding:40px 30px;
+  background:#e6e6fa;
+  border-radius: 15px;
+  margin:auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:12%;
+  left: 60%;
+}
+
+.btn-success{
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.btn-primary{
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+p{
+	text-align: center;
+}
+
+.form-group{
+  position: relative;
+  margin-bottom:15px;
+}
