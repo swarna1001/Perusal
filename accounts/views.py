@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm
 
 # Create your views here.
-def index_page(request):
-    # return HttpResponse(slug)
-    return render(request, 'accounts/index_page.html')
+
 
 
 def signup_view(request):

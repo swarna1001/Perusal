@@ -1,0 +1,183 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  
+}
+
+body{
+  background: #f0fff0;
+}
+
+.wrapper .header{
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  top: 0;
+}
+
+.wrapper .header .header-menu{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.wrapper .header .header-menu ul{
+  display: flex;
+}
+
+/* signup - signin button styling */
+
+.wrapper .header .header-menu .right-item-1 a{
+  color: #042331;
+  display: block;
+  margin: 0 10px;
+  font-size: 22px;
+  width: 90px;
+  height: 34px;
+  line-height: 35px;
+  text-align: center;
+  transition: 0.3s;
+  transition-property: color;
+  position: absolute;
+  top: 25%;
+  left: 80%;
+}
+
+.wrapper .header .header-menu .right-item-2 a{
+  color: #042331;
+  display: block;
+  margin: 0 10px;
+  font-size: 22px;
+  width: 100px;
+  height: 34px;
+  line-height: 35px;
+  text-align: center;
+  transition: 0.3s;
+  transition-property: color;
+  position: absolute;
+  top: 25%;
+  left: 88%;
+}
+
+.wrapper .header .header-menu .right-item-1 a:hover{
+  color: #4CCEE8;
+}
+
+.wrapper .header .header-menu .right-item-2 a:hover{
+  color: #4CCEE8;
+} 
+
+
+.wrapper .main-container{
+  width: (100% - 250px);
+  margin-top: 0px;
+  margin-left: 250px;
+  padding: 30px;
+}
+
+.login-form{
+  width:350px;
+  padding:40px 30px;
+  background:#e6e6fa;
+  @include border-radius(20px);
+  margin:auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:16%;
+  left: 60%;
+  @include translateY(-50%);
+}
+.form-group{
+  position: relative;
+  margin-bottom:15px;
+}
+.form-control{
+  width:100%;
+  height:50px;
+  border:none;
+  padding:5px 7px 5px 15px;
+  background:#fff;
+  color:#666;
+  border:2px solid #ddd;
+  @include border-radius(4px);
+    &:focus, &:focus + .fa{
+      border-color:#10CE88;
+      color:#10CE88;
+    }
+}
+
+h5{
+  margin-left: 140px; 
+  
+}
+
+.form-group .fas{
+  position: absolute;
+  right:15px;
+  top:17px;
+  color:#191970;
+}
+
+.log-btn{
+  background:#228b22;
+  dispaly:inline-block;
+  width:100%;
+  font-size:20px;
+  height:50px;
+  color:#fff;
+  text-decoration:none;
+  border:none;
+  border-top: 20px;
+  margin-bottom: 10px;
+  @include border-radius(4px);
+}
+
+.sign-btn{
+  background:#800000;
+  dispaly:inline-block;
+  width:100%;
+  font-size:20px;
+  height:50px;
+  color:#fff;
+  text-decoration:none;
+  border:none;
+  margin-top: 15px;
+  @include border-radius(4px);
+}
+ 
+ /* forgot password link --------------------- */
+.link{
+  text-decoration:none;
+  color:#C6C6C6;
+  float:right;
+  font-size:12px;
+  margin-bottom:15px;
+  &:hover{
+    text-decoration: underline;
+    color:#8C918F;
+  }
+}
+.alert{
+  display:none;
+  font-size:12px;
+  color:#f00;
+  float:left;
+}
+@include keyframes (wrong-log) {
+  0%, 100% { left: 0px;}
+  20% , 60%{left: 15px;}
+  40% , 80%{left: -15px;}
+}
+
+/* ------------------------ */
+
