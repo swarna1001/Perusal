@@ -14,10 +14,10 @@
 </head>
 <body>
 
-	<div class="main-container">
+	<div class="main-container">             <!--/accounts/login/ -->
 		<div class="login-form">
 
-	<form class="form-group" action="/accounts/login/" method="post">
+	<form class="form-group" action="{% url 'accounts:login' %}" method="post">
 		{% csrf_token %}
 		{{form|crispy}}
 
