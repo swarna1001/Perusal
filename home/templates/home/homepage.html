@@ -2,8 +2,23 @@
 <html>
 <head>
 	<title>homepage</title>
+	   {% load static %}
+
 </head>
 <body>
+
+	<nav>
+		<ul>
+			<li>
+				<form class="logout-link" action="/accounts/logout/" method="post">
+					{% csrf_token %}
+					<button type="submit">Logout</button>
+				</form>
+					
+			</li>
+		</ul>
+	</nav>
+
 	<h2>My Homepage</h2>
 
 </body>
