@@ -13,6 +13,8 @@ body{
 }
 
 
+
+
 .login-form{
   width:350px;
   padding:40px 30px;
@@ -20,10 +22,10 @@ body{
   border-radius: 15px;
   margin:auto;
   position: absolute;
-  left: 0;
-  right: 0;
-  top:12%;
-  left: 60%;
+  left: 0px;
+  right: 0px;
+  top: 12%;
+  
 }
 
 .btn-success{
@@ -42,5 +44,5 @@ p{
 
 .form-group{
   position: relative;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }

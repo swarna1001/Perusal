@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
-from accounts import views as v
+#from accounts import views as v
 
 from .import views
 
@@ -15,9 +15,9 @@ urlpatterns = [
 
     # new changes (recent version)
 
-    #url(r'', include('home.urls')),
+   
     url(r'', views.basic_home_view, name="basic_home"),
-    #url(r'accounts/', include('accounts.urls')),
+    
 
 
     # old version

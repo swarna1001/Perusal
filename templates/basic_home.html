@@ -6,10 +6,26 @@
     <meta charset="UTF-8">
 	<title></title>
     <script src="https://kit.fontawesome.com/a076d05399.js"> </script>
-	<link rel="stylesheet" type="text/css" href="{% static 'home/basic_home_style.css' %}"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'home/basic_home_style.css' %}"/> 
 
 </head>
 <body>
+    {% csrf_token %}
+
+
+
+    <h1 class="headertest">
+        Perusal <br> <br>
+    </h1>
+
+    <h2 class="headertestdata">Main Landing Page</h2>
+
+    <a href="{% url 'accounts:login' %}"  class="btn btn-success btn-lg btn-lg"> Sign In</a> 
+
+    <a href="{% url 'accounts:signup' %}" class="btn btn-primary btn-lg btn-lg">New Account</a>
 
 	<!--wrapper start-->
     <div class="wrapper">
@@ -18,8 +34,8 @@
         <div class="header">
             <div class="header-menu">
                 <ul>
-                        <li class="right-item-1"><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
-                        <li class="right-item-2"><a href="{% url 'accounts:login' %}">Sign In</a></li> 
+                        <!-- <li class="right-item-1"><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                        <li class="right-item-2"><a href="{% url 'accounts:login' %}">Sign In</a></li> -->
                     </ul>
                 </div>
             </div>

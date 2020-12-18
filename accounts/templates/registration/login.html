@@ -13,8 +13,7 @@
 	{% load crispy_forms_tags %}
 </head>
 <body>
-
-	<div class="main-container">             <!--/accounts/login/ -->
+            <!--/accounts/login/ -->
 		<div class="login-form">
 
 	<form class="form-group" action="{% url 'accounts:login' %}" method="post">
@@ -28,11 +27,11 @@
 
         <p> Don't have an account? Create one</p>
 
-        <a href="signup/" class="btn btn-primary btn-lg btn-block">New Account</a>
+        <a href="{% url 'accounts:signup' %}" class="btn btn-primary btn-lg btn-block">New Account</a>
 
 	</form>
 </div>
-</div>
+
 
 
 </body>
