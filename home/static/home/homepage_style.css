@@ -50,7 +50,7 @@ body{
 
 /* signup - signin button styling 
 
-.wrapper .header .header-menu .right-item-1 a{
+.wrapper .header .header-menu .logout-link {
   color: #fff;
   display: block;
   margin: 0 10px;
@@ -88,7 +88,7 @@ body{
 
 .wrapper .header .header-menu .right-item-2 a:hover{
   color: #4CCEE8;
-} */
+} */ 
 
 
 .wrapper .sidebar{
@@ -272,3 +272,46 @@ body{
   line-height: 30px;
   width: 0px;
  }
+
+
+/* logout button styling */
+
+.logout-button{
+  display: inline-block;
+  position: absolute;
+  top: 15%;
+  left: 85%;
+  bottom: 15%;
+  padding: 15px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #152454;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 5px #999;
+  font-family: "Georgia", "Lucida Handwriting";
+
+}
+
+.logout-button:hover {
+  background-color: #152184;
+}
+
+.logout-button:active {
+  background-color: #152184;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+.testdata {
+  text-align: center;
+  padding-top: 150px;
+  font-family: "Georgia", "Lucida Handwriting";
+}
+
+

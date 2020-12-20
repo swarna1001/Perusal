@@ -15,7 +15,12 @@ def signup_view(request):
 			# log the user in
 			login(request, user)
 			# user is directed to his homepage, after successful login
-			return redirect('home:homepage')
+			# return redirect('home:homepage')
+
+			# user is directed to login page after the successful registration
+			return redirect('accounts:login')
+
+
 	else:
 		form = RegisterForm()
 	
@@ -41,6 +46,9 @@ def login_view(request):
 def logout_view(request):
 	if request.method == 'POST':
 		logout(request)
+
+		# temporary logout direct
+		# might create a different logout view
 
 		return redirect('basic_home/')
 

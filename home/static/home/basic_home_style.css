@@ -52,25 +52,27 @@ body{
 h1.headertest {
   text-align: center;
   padding-top: 50px;
-  font-size: 60px;
-
-  
+  padding-bottom: 70px;
+  font-size: 100px; 
+  color: rgb(0, 0, 102);
+  font-family: "Lucida Handwriting", "Georgia";
 }
 
-h2.headertestdata {
+h3.headertestdata {
   text-align: center;
-  
+  padding-bottom: 30px;
+  font-family: "Georgia", "Lucida Handwriting";
 }
 
 .btn-success{
-  margin-top: 150px;
+  margin-top: 80px;
   margin-bottom: 30px;
   margin-left: 400px;
   text-align: center;
 }
 
 .btn-primary{
-  margin-top: 150px;
+  margin-top: 80px;
   margin-bottom: 10px;
   margin-left: 500px;
   text-align: center;

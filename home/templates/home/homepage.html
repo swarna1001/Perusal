@@ -10,10 +10,10 @@
 	<title>homepage</title>
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 	   
-	   <link rel="stylesheet" type="text/css" href="{% static 'home/homepagey_style.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'home/homepage_style.css' %}"/>
 
 </head>
 <body>
@@ -34,9 +34,14 @@
                                 <i class="fas fa-search"></i></a>
                         </div>
                     </li>
-                        <!--<li class="right-item-1"><a href="#">Sign Up</a></li>
-                        <li class="right-item-2"><a href="#">Sign In</a></li> -->
-                    </ul>
+
+                    <li>
+						<form class="logout-link" action="/accounts/logout/" method="post">
+							{% csrf_token %}
+						<button class="logout-button" type="submit">Log Out</button>
+						</form>
+					</li>
+                    </ul> 
                 </div>
             </div>
 
@@ -47,71 +52,60 @@
         <div class="sidebar-menu">
             <center class="profile">
                 <img src="images/1.jpg" alt="">
-                    <p>Swarna</p>
+                    <p>{{ user.username }} </p>
             </center>
-            <li class="item">
-                <a href="#" class="menu-btn">
-                    <i class="fas fa-desktop"></i><span>Home</span>
-                </a>
-            </li>
+            
 
             <li class="item" id="profile">
                 <a href="#profile" class="menu-btn">
-                    <i class="fas fa-book"></i><span>Categories <i class="fas fa-chevron-down drop-down"></i></span>
+                    <i class="fas fa-book"></i><span>Genres <i class="fas fa-chevron-down drop-down"></i></span>
                 </a>
                     <div class="sub-menu">
-                        <a href="#"><i class="fas fa-newspaper"></i><span>Catergory-1</span></a>
-                        <a href="#"><i class="fas fa-newspaper"></i><span>Catergory-2</span></a>
+                        <a href="#"><i class="fas fa-newspaper"></i><span>Genre-1</span></a>
+                        <a href="#"><i class="fas fa-newspaper"></i><span>Genre-2</span></a>
                     </div>
             </li>
 
             <li class="item">
                 <a href="#" class="menu-btn">
-                    <i class="fas fa-info-circle"></i><span>About</span>
+                    <i class="fas fa-pencil-ruler"></i><span>Posts</span>
+                </a>
+            </li>
+
+            <li class="item">
+                <a href="#" class="menu-btn">
+                    <i class="fas fa-user-friends"></i><span>Friends</span>
                 </a>
             </li>
         </div>
     </div>
-        
+
 <!--sidebar end-->
 
-<!--main container start-->
-
-    <div class="main-container">
     
-        <h2>My Feed</h2>
-
-<!--main container end-->
-        
-    </div> 
-<!--wrapper end-->
-
-</div>
-    
-
-<script type="text/javascript">
-    $(document).ready(function()
-    {
-        $(".sidebar-btn").click(function(){$(".wrapper").toggleClass("collapse");
-    });
-    });
-</script>
-
-
 
 	<nav>
 		<ul>
 			<li>
 				<form class="logout-link" action="/accounts/logout/" method="post">
 					{% csrf_token %}
-					<button type="submit">Logout</button>
+					<button class= "btn btn-success btn-lg btn-lg" type="submit">Logout</button>
 				</form>
 					
 			</li>
 		</ul>
 	</nav>
 
-	<h2>My Homepage</h2>
+
+    <h1 class="testdata"> Welcome {{ user.username }} </h1>
+
+	<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $(".sidebar-btn").click(function(){$(".wrapper").toggleClass("collapse");
+    });
+    });
+</script>
 
 </body>
 </html>
