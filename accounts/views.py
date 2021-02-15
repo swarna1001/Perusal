@@ -36,7 +36,7 @@ def login_view(request):
 			user = form.get_user()
 			login(request, user)
 
-			return redirect('home:homepage')
+			return redirect('accounts:homepage')
 	else:
 		form = AuthenticationForm()
 
@@ -51,4 +51,13 @@ def logout_view(request):
 		# might create a different logout view
 
 		return redirect('basic_home/')
+
+
+
+def homepage_view(request):
+    # return HttpResponse(slug)
+    return render(request, 'accounts/homepage.html')
+
+
+
 

@@ -9,9 +9,9 @@ from .import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^accounts/', include('accounts.urls')),
+    url(r'accounts/', include('accounts.urls')),
 
-    url(r'', include('home.urls')),
+    #url(r'', include('home.urls')),
 
     # new changes (recent version)
 
@@ -27,4 +27,5 @@ urlpatterns = [
     #path('', include("django.contrib.auth.urls")),
 
 ]
+
  
