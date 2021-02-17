@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
+
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -54,10 +56,36 @@ def logout_view(request):
 		return render(request, 'accounts/logout.html')
 
 
-
+@login_required
 def homepage_view(request):
     # return HttpResponse(slug)
-    return render(request, 'accounts/homepage.html')
+    if request.method == "POST":
+
+    	u_form = UserUpdateForm(request.POST, instance=request.user)
+    	p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+
+    	if u_form.is_valid() and p_form.is_valid():
+    		u_form.save()
+    		p_form.save()
+
+    		messages.success(request, f'your account has been updated!')
+    		return redirect('accounts:homepage')
+
+    	else:
+    		messages.success(request, f'Fill all the fields!')
+
+    else:
+
+	    u_form = UserUpdateForm(instance=request.user)
+	    p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+    	'u_form' : u_form,
+    	'p_form' : p_form,
+    }
+
+    return render(request, 'accounts/homepage.html', context)
 
 
 
