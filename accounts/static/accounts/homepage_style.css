@@ -11,6 +11,7 @@ body{
   background: #fff;
 }
 
+/*
 .wrapper .header{
   z-index: 1;
   background: #17252A;
@@ -90,7 +91,7 @@ body{
   color: #4CCEE8;
 } */ 
 
-
+/*
 .wrapper .sidebar{
   z-index: 1;
   background: #17252A;
@@ -222,11 +223,13 @@ body{
   margin-left: 70px;  
 }
 
-
+*/
 
 
 
 /* search bar styling */
+
+/*
 
 .search-box{
   position: absolute;
@@ -273,9 +276,10 @@ body{
   width: 0px;
  }
 
-
+*/
 /* logout button styling */
 
+/*
 .logout-button{
   display: inline-block;
   position: absolute;
@@ -312,6 +316,20 @@ body{
   text-align: center;
   padding-top: 150px;
   font-family: "Georgia", "Lucida Handwriting";
+}
+
+*/
+/* new styles */
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
 }
 
 

@@ -50,7 +50,8 @@ def logout_view(request):
 		# temporary logout direct
 		# might create a different logout view
 
-		return redirect('basic_home/')
+		#return redirect('basic_home/')
+		return render(request, 'accounts/logout.html')
 
 
 

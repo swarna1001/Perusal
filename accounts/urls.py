@@ -1,5 +1,8 @@
 from django.conf.urls import url, include
 from . import views
+from django.urls import path
+
+
 
 app_name = 'accounts'
 
@@ -10,3 +13,4 @@ urlpatterns = [
     url(r'^homepage/$', views.homepage_view, name="homepage"),
 
 ]
+
