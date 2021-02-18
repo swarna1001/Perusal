@@ -7,29 +7,23 @@ from . models import Profile
 
 class RegisterForm(UserCreationForm):
 	email = forms.EmailField()
-	city = forms.CharField()
-	state = forms.CharField()
-
-
+	
 	class Meta:
 		model = User
-		fields = ["username", "email", "password1", "password2", "city", "state"]
+		fields = ["username", "email", "password1", "password2"]
 
 
 
 class UserUpdateForm(forms.ModelForm):
-
 	email = forms.EmailField()
-	city = forms.CharField()
-	state = forms.CharField()
-
-
 	class Meta:
 		model = User
-		fields = ["username", "email", "city", "state"]
+		fields = ["username", "email"]
 
 class ProfileUpdateForm(forms.ModelForm):
+	city = forms.CharField()
+	state = forms.CharField()
 	class Meta:
 		model = Profile
-		fields = ['image']
+		fields = ['image', "city", "state"]
 

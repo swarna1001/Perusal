@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -86,7 +87,5 @@ def homepage_view(request):
     }
 
     return render(request, 'accounts/homepage.html', context)
-
-
 
 
