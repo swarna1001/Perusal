@@ -23,7 +23,9 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
 	city = forms.CharField()
 	state = forms.CharField()
+	bio = forms.CharField()
+
 	class Meta:
 		model = Profile
-		fields = ['image', "city", "state"]
+		fields = ['image', "city", "state", "bio"]
 

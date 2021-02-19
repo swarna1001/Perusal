@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
+from .models import Profile
 
 # Create your views here.
 
@@ -70,7 +72,7 @@ def homepage_view(request):
     		u_form.save()
     		p_form.save()
 
-    		messages.success(request, f'your account has been updated!')
+    		messages.success(request, f'your profile has been updated!')
     		return redirect('accounts:homepage')
 
     	else:
