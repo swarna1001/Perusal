@@ -10,7 +10,8 @@ urlpatterns = [
     url(r'^signup/$', views.signup_view, name="signup"),
     url(r'^login/$', views.login_view, name="login"),
     url(r'^logout/$', views.logout_view, name="logout"),
-    url(r'^homepage/$', views.homepage_view, name="homepage"),
+    #url(r'^homepage/$', views.homepage_view, name="homepage"),
+    url(r'^my_profile/$', views.my_profile_view, name="my_profile"),
 
 ]
 
