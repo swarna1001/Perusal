@@ -79,7 +79,7 @@ def my_profile_view(request):
 
 
 @login_required
-def homepage_view(request):
+def edit_profile_view(request):
     # return HttpResponse(slug)
     if request.method == "POST":
 
@@ -92,7 +92,7 @@ def homepage_view(request):
     		p_form.save()
 
     		messages.success(request, f'your profile has been updated!')
-    		return redirect('accounts:homepage')
+    		return redirect('accounts:my_profile')
 
     	else:
     		messages.success(request, f'Fill all the fields!')
