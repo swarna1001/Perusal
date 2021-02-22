@@ -56,6 +56,11 @@
             </div>
             <!--header menu end-->
             <!--sidebar start-->
+
+            <div class="row">
+                <div class="col-2">
+                
+            
             <div class="sidebar">
                 <div class="sidebar-menu">
                     <center class="profile">
@@ -68,7 +73,7 @@
 
                     <li class="item">
                         <a href="{% url 'accounts:edit_profile' %}"  class="edit-menu-btn">
-                            <i class="fas fa-desktop"></i><span>Edit Profile</span>
+                            <i class="fas fa fa-user"></i><span>Edit Profile</span>
                         </a>
                     </li>
 
@@ -80,25 +85,25 @@
 
                     <li class="item">
                         <a href="#" class="menu-btn">
-                            <i class="fas fa-desktop"></i><span>Genres</span>
+                            <i class="fa fa-sticky-note"></i><span>Genres</span>
                         </a>
                     </li>
 
-                    <li class="item" id="profile">
+                    <li class="item">
                         <a href="#profile" class="menu-btn">
-                            <i class="fas fa-user-circle"></i><span>Read List</span>
+                            <i class="fas fa fa-book"></i><span>Read List</span>
                         </a>
                     </li>
 
-                    <li class="item" id="messages">
+                    <li class="item">
                         <a href="#messages" class="menu-btn">
-                            <i class="fas fa-envelope"></i><span>Friends</span>
+                            <i class="fas fa fa-users"></i><span>Friends</span>
                         </a>
                     </li>
 
-                    <li class="item" id="profile">
-                        <a href="#profile" class="menu-btn">
-                            <i class="fas fa-user-circle"></i><span>Posts</span>
+                    <li class="item">
+                        <a href="#posts" class="menu-btn">
+                            <i class="fas fa-newspaper"></i><span>Posts</span>
                         </a>
                     </li>
 
@@ -122,21 +127,27 @@
                     
                 </div>
             </div>
+            </div>
+
             <!--sidebar end-->
+
+
             <!--main container start-->
+
+            <div class="col-7">
+
             <div class="main-container">
-                <div class="card">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <div class="main-card">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been .</p>
                 </div>
-                <div class="card">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <div class="main-card">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's .</p>
                 </div>
-                <div class="card">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <div class="main-card">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the .</p>
                 </div>
 
                 <div>
-
                     <!-- display django messages -->
 
                     <main role="main" class="container">
@@ -153,6 +164,7 @@
                                 {% endif %}       
                             </div>
                         </div>
+                </div>
 
                 <div class="content-section">
                     <div class="media">
@@ -164,8 +176,6 @@
                             </div>
 
                     </div>
-
-                
 
                 </div>
 
@@ -181,7 +191,54 @@
                     
                 </div>
             </div>
+
             <!--main container end-->
+
+            <!-- RIGHT SIDE container -->
+            <div class="col-3">
+                <div class="right-sidebar">
+                <div>
+
+                    {% if users %}
+                        
+                            
+                            {% for user_p in users %}
+                                <div class="card">
+                                    <a href="{{ user_p.get_absolute_url }}"><img
+                                     src="{{ user_p.image.url }}" class="rounded mr-2" width="40" height="40" alt=""/></a>
+                                    <a class="text-dark" href="{{ user_p.get_absolute_url }}"><b>
+                                    {{ user_p }}</b></a>
+
+                                </div>
+
+                            {% endfor %}
+
+          
+                    {% endif %}
+                            <br /><br />
+          
+        
+      </div>
+     
+      <h5><i>No new people to add now! Please come back later!</i></h5>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </div>
         </div>
         <!--wrapper end-->
 

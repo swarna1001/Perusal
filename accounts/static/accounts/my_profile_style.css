@@ -92,6 +92,19 @@ body{
   overflow-y: auto;
 }
 
+.wrapper .right-sidebar{
+  z-index: 1;
+
+  background: #4f6312;
+  position: fixed;
+  top: 70px;
+  height: calc(100% - 9%);
+  transition: 0.3s;
+  transition-property: width;
+  overflow-y: auto;
+}
+
+
 hr.solid{
   border-top: 1px solid #bbb;
   width: 200px
@@ -172,54 +185,10 @@ hr.solid{
   margin-right: 20px;
 }
 
-.wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
-  float: right;
-  font-size: 12px;
-  margin-top: 3px;
-}
-
-.wrapper .sidebar .sidebar-menu .item .sub-menu{
-  background: #3498DB;
-  overflow: hidden;
-  max-height: 0;
-  transition: 0.3s;
-  transition-property: background, max-height;
-}
-
-.wrapper .sidebar .sidebar-menu .item .sub-menu a{
-  display: block;
-  position: relative;
-  color: #fff;
-  white-space: nowrap;
-  font-size: 15px;
-  padding: 20px;
-  transition: 0.3s;
-  transition-property: background;
-}
-
-.wrapper .sidebar .sidebar-menu .item .sub-menu a:hover{
-  background: #55B1F0;
-}
-
-.wrapper .sidebar .sidebar-menu .item .sub-menu a:not(last-child){
-  border-bottom: 1px solid #8FC5E9;
-}
-
-.wrapper .sidebar .sidebar-menu .item .sub-menu i{
-  padding-right: 20px;
-  font-size: 10px;
-}
-
-.wrapper .sidebar .sidebar-menu .item:target .sub-menu{
-  max-height: 500px;
-}
-
 .wrapper .main-container{
-  width: (100% - 250px);
   margin-top: 70px;
-  margin-left: 250px;
+  
   padding: 15px;
-  background: url(background.jpg)no-repeat;
   background-size: cover;
   height: 100vh;
   transition: 0.3s;
@@ -318,6 +287,58 @@ hr.solid{
   line-height: 30px;
   width: 0px;
  }
+
+/* card styling */
+ .card {
+  display: inline-grid;
+  width: 150px;
+  height: 200px;
+  
+  margin-left: 10px;
+  margin-top: 80px;
+  background: white;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+  text-align: center;
+  font-family: "fantasy", sans-serif;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+}
+.card {
+...
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 80px;
+}
+
+
+.main-card {
+  display: inline-grid;
+  width: 150px;
+  height: 200px;
+  border-radius: 18px;
+  margin-left: 20px;
+  margin-top: 60px;
+  background: white;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+  text-align: center;
+  font-family: "fantasy", sans-serif;
+}
+
+.main-card:hover {
+  transform: scale(1.02);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+}
+.main-card {
+...
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 80px;
+}
 
 
 
