@@ -17,9 +17,12 @@ class Profile(models.Model):
 	city = models.CharField(max_length=30, blank=True)
 	state = models.CharField(max_length=30, blank=True)
 
-	slug = AutoSlugField(populate_from='user', default='DEFAULT VALUE')
+	slug = AutoSlugField(populate_from='user')
 	bio = models.CharField(max_length=255, blank=True)
 	friends = models.ManyToManyField("Profile", blank=True)
+	
+	adds_classic = models.BooleanField('classic', default=False)
+
 
 
 	def __str__(self):
@@ -29,10 +32,11 @@ class Profile(models.Model):
 		return "/accounts/{}".format(self.slug)
 
 
+	# for image resize and save the updated profile in the database
+
 	def save(self, *args, **kwargs):
 		super().save(*args, **kwargs)
 		
-
 		img = Image.open(self.image.path)
 
 		if img.height > 300 or img.width > 300:

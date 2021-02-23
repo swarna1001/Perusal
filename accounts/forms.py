@@ -29,3 +29,15 @@ class ProfileUpdateForm(forms.ModelForm):
 		model = Profile
 		fields = ['image', "city", "state", "bio"]
 
+
+
+class Genres_choices(forms.ModelForm):
+	adds_classic = forms.BooleanField()
+	
+
+	class Meta:
+		model = Profile
+		fields = ['adds_classic']
+
+
+
