@@ -261,7 +261,7 @@ def profile_view(request, slug):
 		#'post_count': user_posts.count
 	}
 
-	return render(request, "accounts/profile.html", context)
+	return render(request, "accounts/test_profile.html", context)
 
 
 
