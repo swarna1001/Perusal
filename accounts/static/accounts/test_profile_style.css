@@ -66,8 +66,8 @@ hr.solid{
 
 .wrapper .sidebar .sidebar-menu .profile img{
   margin: 20px 0;
-  width: 135px;
-  height: 135px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
 }
 
@@ -142,6 +142,31 @@ hr.solid{
   height: 100vh;
   transition: 0.3s;
   padding: 15px;
+}
+
+
+.profile-image{
+  margin: 20px 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+
+}
+
+.posts-col{
+  margin-top: 40px;
+}
+
+.friends-col{
+  margin-top: 51px;
+}
+
+.user-location{
+  margin-top: 10px;
+}
+
+.user-name{
+  margin-top: 20px;
 }
 
 /* logout button styling 

@@ -12,23 +12,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8">        
     </script>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'accounts/res_test_profile_style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/test_profile_style.css' %}"/>
 
     <style>
         .my-container{
             border: 1px solid green;
             margin-left: 230px;
-            max-width: 1290px;
+            /*max-width: 1290px;*/
 
+        }
+
+        .my-row{
+            margin-top: 10px;
+        } 
+        .top-row{
+            margin-top: 40px;
+        }
+
+        .my-col{
+            border: 3px solid blue;
         }
 
         /*.my-row{
             border: 3px solid red;
         } */
-
-        .my-col{
-            border: 3px solid blue;
-        } 
 
     </style>    
 
@@ -98,7 +105,7 @@
                     <div class="title"><span>Perusal</span></div>    
             </div>
 
-            <div class="col-5 my-col my-col-12">
+            <div class="col-5 my-col my-col-12 text-right">
                     <ul>
                         <li>
                             <form class="logout-link" action="/accounts/logout/" method="post">
@@ -110,7 +117,7 @@
             </div> 
         </div>
 
-        <div class="row my-row">       <!-- ROW 2   SEARCH BAR  -->
+        <div class="row justify-content-center my-row">       <!-- ROW 2   SEARCH BAR  -->
             <div class="col-6 my-col my-col-21 text-center">
                 <div class="search">
                     <form class="search-form">
@@ -120,23 +127,62 @@
                             </form>
                     </div> 
 
-                    <h6>row 2 col 1</h6>
+                    
             </div>  
         </div>  
 
 
-        <div class="row my-row">       <!-- ROW 3  DP, POSTS, FRIENDS-->
-            <div class="col-6 my-col my-col-31">
-                <h1>row 3 col 1</h1> 
-            </div>  
+        <div class="row justify-content-center my-row top-row"><!-- ROW 3  DP, POSTS, FRIENDS-->
+            <div class="col-3 my-col my-col-31 text-center">
+                        <img class="profile-image" src="{{ u.profile.image.url }}">             
+            </div> 
 
-            <div class="col-3 my-col my-col-32">
-                <h1>row 3 col 2</h1> 
+
+            <div class="col-5 my-col my-col-32 ">
+
+                <div class="col my-col">
+
+                    <div class="row my-row">
+                            <div class="col-8 my-col">                    
+                            </div>
+
+                <div class="col-4 my-col text-center">
+                    <div class="posts-col">
+                    <h3>100</h3>
+                    <h3>Posts</h3>                   
+                </div>
+                    
+                </div>
+
+
+
+
+                </div>
+                
+                
+
+
+
+                <div class="row my-row">
+                <div class="media-body">
+                    <h2 class="user-name">{{ u.username }} </h2>
+                    <h4 class="user-location"> {{ u.profile.city }},  {{ u.profile.state }}  </h4>
+                </div>
+            </div>
+            </div> 
+            </div>
+ 
+
+            <div class="col-2 my-col my-col-32 text-center">
+                <div class="friends-col">
+                    <h3>50</h3>
+                    <h3>Friends</h3>                    
+                </div>
+                
+
             </div>
 
-            <div class="col-3 my-col my-col-33">
-                <h1>row 3 col 3</h1> 
-            </div>
+            
 
         </div> 
 
