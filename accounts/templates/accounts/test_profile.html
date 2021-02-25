@@ -16,9 +16,11 @@
 
     <style>
         .my-container{
-            border: 1px solid green;
+
             margin-left: 230px;
-            /*max-width: 1290px;*/
+            /*border: 1px solid green;*/
+            
+           /* max-width: 1280px; */
 
         }
 
@@ -29,11 +31,11 @@
             margin-top: 40px;
         }
 
-        .my-col{
-            border: 3px solid blue;
+      /* .my-col{
+            border: 1px solid blue;
         }
-
-        /*.my-row{
+        
+         .my-row{
             border: 3px solid red;
         } */
 
@@ -101,11 +103,11 @@
     <div class="container my-container">
         
         <div class="row my-row">        <!-- ROW 1  TITLE  -->
-            <div class="col-7 my-col my-col-11">
+            <div class="col-7 my-col top-col my-col-11">
                     <div class="title"><span>Perusal</span></div>    
             </div>
 
-            <div class="col-5 my-col my-col-12 text-right">
+            <div class="col-5 my-col top-col my-col-12 text-right">
                     <ul>
                         <li>
                             <form class="logout-link" action="/accounts/logout/" method="post">
@@ -137,39 +139,26 @@
                         <img class="profile-image" src="{{ u.profile.image.url }}">             
             </div> 
 
-
             <div class="col-5 my-col my-col-32 ">
-
                 <div class="col my-col">
-
                     <div class="row my-row">
-                            <div class="col-8 my-col">                    
-                            </div>
+                        <div class="col-8 my-col"> </div>
 
-                <div class="col-4 my-col text-center">
-                    <div class="posts-col">
-                    <h3>100</h3>
-                    <h3>Posts</h3>                   
-                </div>
-                    
-                </div>
-
-
-
-
-                </div>
+                        <div class="col-4 my-col text-center">
+                            <div class="posts-col">
+                                <h3>100</h3>
+                                <h3>Posts</h3>                   
+                            </div>                   
+                        </div>
+                    </div>
                 
-                
-
-
-
-                <div class="row my-row">
-                <div class="media-body">
-                    <h2 class="user-name">{{ u.username }} </h2>
-                    <h4 class="user-location"> {{ u.profile.city }},  {{ u.profile.state }}  </h4>
-                </div>
-            </div>
-            </div> 
+                    <div class="row my-row">
+                        <div class="media-body">
+                            <h2 class="user-name">{{ u.username }} </h2>
+                            <h4 class="user-location"> {{ u.profile.city }},  {{ u.profile.state }}  </h4>
+                        </div>
+                    </div>
+                </div> 
             </div>
  
 
@@ -178,41 +167,39 @@
                     <h3>50</h3>
                     <h3>Friends</h3>                    
                 </div>
-                
-
+                <div>
+                    <form class="request-link" action="#" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-primary btn-lg btn-block" type="submit"> Request</button>
+                            </form>
+                </div>
             </div>
-
-            
-
         </div> 
 
 
-        <div class="row my-row">       <!-- ROW 4 BIO, REQUEST-->
-            <div class="col-12 my-col my-col-41">
-                <h1>row 4 col 1</h1> 
+        <div class="row justify-content-center my-row">       <!-- ROW 4 BIO, REQUEST-->
+            <div class="col-10 my-col my-col-41">
+                <div class="user-bio">
+                    <h4>{{ u.profile.bio }}</h4>
+                </div> 
             </div>  
         </div>
 
-        <div class="row my-row">       <!-- ROW 5  LOCATION -->
-            <div class="col-12 my-col my-col-51">
-                <h1>row 5 col 1</h1> 
-            </div>  
-        </div>
 
-        <div class="row my-row">       <!-- ROW 6 GENRES, READ LIST -->
-            <div class="col-6 my-col my-col-61">
-                <h1>row 6 col 1</h1> 
+        <div class="row justify-content-around my-row">       <!-- ROW 5 GENRES, READ LIST -->
+            <div class="col-2 my-col my-col-61">
+                <h3>Genres</h3> 
             </div>
 
-            <div class="col-6 my-col my-col-62">
-                <h1>row 6 col 2</h1> 
+            <div class="col-2 my-col my-col-62">
+                <h3>Read List</h3> 
             </div>  
         </div>
 
 
-        <div class="row my-row">       <!-- ROW 7  POSTS -->
-            <div class="col-12 my-col my-col-71">
-                <h1>row 7 col 1</h1> 
+        <div class="row justify-content-center my-row">       <!-- ROW 6  POSTS -->
+            <div class="col-6 my-col my-col-61 text-center">
+                <h1>Posts</h1> 
             </div>  
         </div>
 
