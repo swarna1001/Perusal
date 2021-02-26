@@ -87,7 +87,6 @@ hr.solid{
   transition-property: color;
 }
 
-
 .wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
   color: #d6cbd3;
 }
@@ -207,6 +206,16 @@ hr.solid{
     margin: 0 auto;
   }
 
+}
+
+
+/* styling the display */
+
+.main-card{
+  background: #e0e2e4;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 
