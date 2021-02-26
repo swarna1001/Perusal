@@ -11,51 +11,30 @@ body{
   background: #fff;
 }
 
-.wrapper .header{
-  z-index: 1;
-  background: #22242A;
-  position: fixed;
-  width: calc(100% - 0%);
-  height: 70px;
-  display: flex;
-  top: 0;
-}
-
-.wrapper .header .header-menu{
-  width: calc(100% - 0%);
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.wrapper .header .header-menu .title{
+.title{
   color: #fff;
   font-size: 25px;
   text-transform: uppercase;
   font-weight: 900;
 }
 
-.wrapper .header .header-menu .title span{
+.title span{
   color: #4CCEE8;
+  font-size: 40px;
 }
 
 .wrapper .sidebar{
   z-index: 1;
   background: #454140;
-  position: fixed;
-  top: 70px;
-  /*width: 225px; */
-  height: calc(100% - 9%);
-  transition: 0.3s;
-  transition-property: width;
+  
+  width: 225px; 
+  height: 100%;
   overflow-y: auto;
 }
 
 hr.solid{
   border-top: 1px solid #bbb;
-  width: 200px
+  width: 200px;
 }
 
 .wrapper .sidebar .sidebar-menu{
@@ -64,8 +43,8 @@ hr.solid{
 
 .wrapper .sidebar .sidebar-menu .profile img{
   margin: 20px 0;
-  width: 135px;
-  height: 135px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
 }
 
@@ -76,7 +55,7 @@ hr.solid{
 }
 
 .wrapper .sidebar .sidebar-menu .item{
-  width: 250px;
+  width: 225px;
   overflow: hidden;
 }
 
@@ -94,7 +73,7 @@ hr.solid{
   display: block;
   color: #fff;
   position: relative;
-  padding: 20px 35px;
+  padding: 80px 35px;
   transition: 0.3s;
   transition-property: color;
 }
@@ -133,62 +112,102 @@ hr.solid{
   margin-right: 20px;
 }
 
-.wrapper .main-container{
-  margin-top: 70px;
- 
-  background-size: cover;
-  height: 100vh;
-  transition: 0.3s;
-  padding: 15px;
+
+.logout-link{
+  margin-top: 10px;
 }
 
-/* logout button styling */
-.my-sm-0 {
-    margin-top: 25% !important;
+
+.profile-image{
+  margin: 20px 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+
 }
 
-/* search bar styling */
+.posts-col{
+  margin-top: 40px;
+}
 
-.search-box{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #2f3640;
-  border-radius: 30px;
-  padding: 10px;
- }
+.friends-col{
+  margin-top: 53px;
+  margin-left: 50px;
+}
 
-/* without the hover effect */
- .search-box .search-txt{
-  width: 150px;
-  padding: 0 6px;
- }
+.user-location{
+  margin-top: 10px;
+}
+
+.user-name{
+  margin-top: 20px;
+}
+
+.request-link{
+  margin-top: 60px;
+}
+
+.user-bio{
+  margin-top: 20px;
+}
 
 
- .search-btn{
-  color: white;
-  float: right;
-  width: 30px;
-  height: 30px;
-  border-radius: 60%;
-  background: #bd5734;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.4s;
- }
+/* ===========================
+   ====== Search Box ====== 
+   =========================== */
 
- .search-txt{
-  border: none;
+.search
+{
+  border: 2px solid #CF5C3F;
+  overflow: auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.search input[type="text"]
+{
+  border: 0px;
+  width: 67%;
+  padding: 10px 10px;
+}
+
+.search input[type="text"]:focus
+{
+  outline: 0;
+}
+
+.search input[type="submit"]
+{
+  border: 0px;
   background: none;
-  outline: none;
-  float: left;
-  padding: 0;
-  color: white;
-  font-size: 16px;
-  transition: 0.4s;
-  line-height: 30px;
-  width: 0px;
- }
+  background-color: #CF5C3F;
+  color: #fff;
+  float: right;
+  padding: 10px;
+  border-radius-top-right: 5px;
+  -moz-border-radius-top-right: 5px;
+  -webkit-border-radius-top-right: 5px;
+  border-radius-bottom-right: 5px;
+  -moz-border-radius-bottom-right: 5px;
+  -webkit-border-radius-bottom-right: 5px;
+        cursor:pointer;
+}
+
+/* ===========================
+   ====== Medua Query for Search Box ====== 
+   =========================== */
+
+@media only screen and (min-width : 150px) and (max-width : 780px)
+{
+  {}
+  .search
+  {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+}
+
+
 

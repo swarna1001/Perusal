@@ -12,189 +12,213 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8">        
     </script>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'accounts/profile_style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/profile_style.css' %}"/> 
+
+    <style>
+        .my-container{
+            /*margin-left: 230px;*/
+            border: 1px solid green; 
+           /* max-width: 1280px; */
+        }
+
+        .my-row{
+            margin-top: 10px;
+        } 
+        .top-row{
+            margin-top: 40px;
+        
+
+        /*.my-col{
+            border: 1px solid blue;
+        }
+        
+         .my-row{
+            border: 1px solid red;
+        } } */
+
+        </style> 
 
 </head>
 <body>
-    <!--wrapper start-->
-        <div class="wrapper">
-            <!--header menu start-->
-            <div class="header">
-                <div class="header-menu">
-                    <div class="title"><span>Perusal</span></div>                    
-                    <ul>
-                        <li>
-                    		<form class="logout-link" action="/accounts/logout/" method="post">
-                        	{% csrf_token %}
-                        	<button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Logout</button>
-                    		</form>
-                		</li>
-                    </ul>
 
-                    <div class="search-box">
+  <div class="container-fluid my-container">
+        
+        <div class="row my-row">        <!-- ROW 1  TITLE  -->
+            <div class="col-md-2 my-col top-col my-col-11">
+
+
+    <div class="wrapper">
+
+        <div class="sidebar">
+                        <div class="sidebar-menu">
+                            <center class="profile">
+                                <img src="{{ user.profile.image.url }}" alt="">
+                                <p> {{ user.username }} </p>
+                                <hr class="solid">
+                            </center>
+
+                            <li class="item">
+                                <a href="{% url 'accounts:edit_profile' %}"  class="edit-menu-btn">
+                                <i class="fas fa fa-user"></i><span>Edit Profile</span></a>
+                            </li>
+                            <center> <hr class="solid"> </center>
+
+                            <li class="item">
+                                <a href="{% url 'accounts:genres' %}"  class="menu-btn">
+                                <i class="fa fa-sticky-note"></i><span>Genres</span></a>
+                            </li>
+
+                            <li class="item">
+                                <a href="#profile" class="menu-btn">
+                                <i class="fas fa fa-book"></i><span>Read List</span></a>
+                            </li>
+
+                            <li class="item">
+                                <a href="#messages" class="menu-btn">
+                                <i class="fas fa fa-users"></i><span>Friends</span></a>
+                            </li>
+
+                            <li class="item">
+                                <a href="#posts" class="menu-btn">
+                                <i class="fas fa-newspaper"></i><span>Posts</span></a>
+                            </li>
+
+
+                            <li class="item">
+                                <a href="#" class="menu-btn">
+                                <i class="fas fa-info-circle"></i><span>About</span></a>
+                            </li>
+
+                            <div>
+                                <li class="item" id="settings">
+                                    <a href="#settings" class="last-menu-btn">
+                                    <i class="fas fa-cog"></i><span>Settings</span> </a>
+                                </li>
+                            </div>
+                        </div>
+                </div>
+
+            </div> 
+            </div>
+
+            <div class="col-md-10 my-col top-col my-col-12 "> <!-- COL 2 -->
+
+                <div class="row my-row">   <!-- ROW 1 --> 
+
+
+                    <div class="col-7 my-col top-col my-col-11">  <!-- ROW-1 COL 1  TITLE  -->
+                        <div class="title"><span>Perusal</span></div>    
+                    </div>
+
+                        <!-- ROW-1 COL 1  LOG - OUT  -->
+                        <div class="col-5 my-col top-col my-col-12 text-right"> 
+                            <form class="logout-link" action="/accounts/logout/" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Logout</button>
+                            </form>
+                        </div> 
+                </div>
+
+
+                <div class="row justify-content-center my-row">    <!-- ROW 2   SEARCH BAR  -->
+                    <div class="col-6 my-col my-col-21 text-center">
+                        <div class="search">
+                            <form class="search-form">
                             <input class="search-txt" type="text" name="q" placeholder="search">
                                 <a class="search-btn" href="#">
                                 <i class="fas fa-search"></i></a>
+                            </form>
+                        </div>     
+                    </div>  
+                </div>
+
+
+                <!-- ROW 3  DP, POSTS, FRIENDS-->
+                <div class="row justify-content-center my-row top-row">
+                    <div class="col-3 my-col my-col-31 text-right">
+                        <img class="profile-image" src="{{ u.profile.image.url }}">             
+                    </div> 
+
+                    <div class="col-5 my-col my-col-32 ">
+                        <div class="col my-col">
+                            <div class="row my-row">
+                                <div class="col-8 my-col"> </div>
+
+                                <div class="col-4 my-col text-center">
+                                    <div class="posts-col">
+                                        <h3>100</h3>
+                                        <h3>Posts</h3>                   
+                                    </div>                   
+                                </div>
+                            </div>
+                
+                            <div class="row my-row">
+                                <div class="media-body">
+                                    <h2 class="user-name">{{ u.username }} </h2>
+                                    <h4 class="user-location"> {{ u.profile.city }},  {{ u.profile.state }}  </h4>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
-                </div>
-            </div>
-   			<!--header menu end-->
-           <!--sidebar start-->
+ 
 
-            <div class="row">
-                <div class="col-2">  <!-- 1st column division (navbar) -->
-            		<div class="sidebar">
-                		<div class="sidebar-menu">
-                    		<center class="profile">
-                        		<img src="{{ user.profile.image.url }}" alt="">
-                        		<p> {{ user.username }} </p>
-                        		<hr class="solid">
-                    		</center>
+                    <div class="col-2 my-col my-col-32 text-center">
+                        <div class="friends-col">
+                            <h3>50</h3>
+                            <h3>Friends</h3>                    
+                        </div>
 
-                    		<li class="item">
-                        		<a href="{% url 'accounts:edit_profile' %}"  class="edit-menu-btn">
-                            	<i class="fas fa fa-user"></i><span>Edit Profile</span></a>
-                    		</li>
-                    		<center> <hr class="solid"> </center>
-
-                    		<li class="item">
-                        		<a href="{% url 'accounts:genres' %}"  class="menu-btn">
-                            	<i class="fa fa-sticky-note"></i><span>Genres</span></a>
-                    		</li>
-
-                    		<li class="item">
-                        		<a href="#profile" class="menu-btn">
-                            	<i class="fas fa fa-book"></i><span>Read List</span></a>
-                    		</li>
-
-                    		<li class="item">
-                        		<a href="#messages" class="menu-btn">
-                            	<i class="fas fa fa-users"></i><span>Friends</span></a>
-                    		</li>
-
-                    		<li class="item">
-                        		<a href="#posts" class="menu-btn">
-                            	<i class="fas fa-newspaper"></i><span>Posts</span></a>
-                    		</li>
-
-
-                    		<li class="item">
-                        		<a href="#" class="menu-btn">
-                            	<i class="fas fa-info-circle"></i><span>About</span></a>
-                    		</li>
-
-                   	 		<div class="fixed-bottom">
-								<li class="item" id="settings">
-                        			<a href="#settings" class="last-menu-btn">
-                            		<i class="fas fa-cog"></i><span>Settings</span> </a>
-                    			</li>
-                    		</div>
-                    	</div>
-            	</div>
-            </div>
-
-<!--left sidebar end-->
-
-            
-                <div class="col-4">     <!-- 2nd column division -->   
-                <div class="main-container">       <!--main container start-->         	   
-    				
-                	<div>      <!-- display django messages -->
-                    	<main role="main" class="container">
-                        	<div class="row">
-                            	<div class="col-md-8">
-                                	{% if messages %}
-                                    	{% for message in messages %}
-                                        	<div class="alert alert-{{ message.tags }}">
-                                            	{{ message }}                       
-                                        	</div>
-                                    	{% endfor %}
-                                	{% endif %}       
-                            	</div>
-                        	</div>
-                	</div>
-
-                    <div class="card-profile-image"> <a href="{{ u.profile.image.url }}">
-     					<img src="{{ u.profile.image.url }}" class="rounded-circle" width="160px" height="160px"/></a>
-
-     					<h3> {{ u.username }} </h3>
-                        <h4> {{ u.profile.bio}} </h4>
-              		</div>
-
-                    <div>
-                        <span class="heading">{{ u.profile.friends.count }}</span>
-                            {% if request.user == u %}
-                                <span class="description" ><a href="{% url 'friend_list' %}">Friends</a></span>
-                            {% else %}
-                                <span class="description">Friends</span>
-                            {% endif %}
+                        <div>
+                            <form class="request-link" action="#" method="post">
+                                {% csrf_token %}
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit"> Request</button>
+                            </form>
+                        </div>
                     </div>
-                    </div>  <!--main container end-->
-                </div> <!-- 2nd division end -->
+                </div> 
 
-                  
+                <div class="row justify-content-center my-row">       <!-- ROW 4 BIO, REQUEST-->
+                    <div class="col-10 my-col my-col-41">
+                        <div class="user-bio">
+                            <h4>{{ u.profile.bio }}</h4>
+                        </div> 
+                    </div>  
+                </div>
 
-
-
-
-
-            
-        </div>  <!-- row division end -->
-    </div>  <!--wrapper end-->
-  
-
-
-<div class="row py-5 px-4">
-    <div class="col-md-5 mx-auto">
-        <!-- Profile widget -->
-        <div class="bg-white shadow rounded overflow-hidden">
-            <div class="px-4 pt-0 pb-4 cover">
-                <div class="media align-items-end profile-head">
-                    <div class="profile mr-3"><img src="{{ u.profile.image.url }}" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a></div>
-                    <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0">{{ u.username }} </h4>
-                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>New York</p>
+                <!-- ROW 5 GENRES, READ LIST -->
+                <div class="row justify-content-around my-row">       
+                    <div class="col-2 my-col my-col-61">
+                        <h3>Genres</h3> 
                     </div>
+
+                    <div class="col-2 my-col my-col-62">
+                        <h3>Read List</h3> 
+                    </div>  
                 </div>
-            </div>
-            <div class="bg-light p-4 d-flex justify-content-end text-center">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
-                    </li>
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
-                    </li>
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
-                    </li>
-                </ul>
-            </div>
-            <div class="px-4 py-3">
-                <h5 class="mb-0">About</h5>
-                <div class="p-4 rounded shadow-sm bg-light">
-                    <p class="font-italic mb-0">Web Developer</p>
-                    <p class="font-italic mb-0">Lives in New York</p>
-                    <p class="font-italic mb-0">Photographer</p>
-                </div>
-            </div>
-            <div class="py-4 px-4">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
-                    <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://images.unsplash.com/photo-1493571716545-b559a19edd14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
-                    <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://images.unsplash.com/photo-1453791052107-5c843da62d97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
-                    <div class="col-lg-6 pl-lg-1"><img src="https://images.unsplash.com/photo-1475724017904-b712052c192a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+                <div class="row justify-content-center my-row">       <!-- ROW 6  POSTS -->
+                    <div class="col-6 my-col my-col-61 text-center">
+                        <h1>Posts</h1> 
+                    </div>  
+                </div> 
 
 
 
+
+
+
+
+
+
+
+
+
+
+                    
+            </div> <!-- CONTENT COLUMN END -->
+        </div> <!-- ROW END -->
+    </div>  <!-- CONTAINER END -->
       
 </body>
 </html>
