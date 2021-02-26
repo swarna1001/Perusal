@@ -7,25 +7,54 @@
     {% load static %}
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 
+
 	<link rel="stylesheet" type="text/css" href="{% static 'accounts/login_style.css' %}"/>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 
-	{% load crispy_forms_tags %}
+	<script>
+		$(document).ready(function()
+		{
+			$('.chckvalues').click(function()
+			{
+				var txt="";
+				$('.chckvalues:checked').each(function()
+				{
+					txt += $(this).val()+","
+
+				});
+				txt = txt.substring(0, txt.length-1);
+				$('#txtvalues').val(txt);
+			});
+		});
+		
+
+
+	</script>
+
 </head>
 <body>
-            <!--/accounts/login/ -->
-		<div class="genre-form">
 
-	<form class="form-group" action="{% url 'accounts:my_profile' %}" method="post">
-		{% csrf_token %}
-		{{form|crispy}}
+	<center>
+		<h1>Add genres</h1>
+		<hr/>
+		<form method="POST">
+			{% csrf_token %}
 
-		<button type="submit" class="btn btn-success"> Update</button>
+			Genres:
+			<input type="checkbox" value="genre1"  class="chckvalues"> genre1
+			<input type="checkbox" value="genre2"  class="chckvalues"> genre2
+			<input type="checkbox" value="genre3"  class="chckvalues"> genre3
+			<input type="checkbox" value="genre4"  class="chckvalues"> genre4
+			<input type="checkbox" value="genre5"  class="chckvalues"> genre5
 
-	</form>
-</div>
+		<hr/>
+		<input type="text" name="genres" id="txtvalues">
+		<input id="but1" type="submit" value="Insert record" onclick="return alert('successfully inserted!')">
+		
+		</form>
 
-
-
+	</center>
+ 
 </body>
 </html>

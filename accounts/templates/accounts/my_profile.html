@@ -178,6 +178,7 @@
 
                         <h1> Welcome {{ user.username }} </h1>
                         <h2>{{ user.profile.bio}}</h2>
+                        <h3>{{user.profile.genres}}</h3>
 
 
                 <div>
@@ -197,8 +198,7 @@
                 <div>
 
                     {% if users %}
-                        
-                            
+                                
                             {% for user_p in users %}
                                 <div class="card">
                                     <a href="{{ user_p.get_absolute_url }}"><img

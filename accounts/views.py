@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm, Genres_choices
+from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 
@@ -118,27 +118,19 @@ def my_profile_view(request):
 	return render(request, 'accounts/my_profile.html', context)
 
 
-# still working
+@login_required
 def genres_view(request):
+	current_user = request.user
 	if request.method == "POST":
-		form = Genres_choices(request.POST)
+		if request.POST.get('genres'):
+			savedata = current_user.profile
+			savedata.genres = request.POST.get('genres')
+			savedata.save()
 
-		if form.is_valid():
-			user = form.save()
-
-			# log the user in
-			#login(request, user)
-			# user is directed to his homepage, after successful login
-			# return redirect('home:homepage')
-
-			# user is directed to login page after the successful registration
-			return redirect('accounts:my_profile')
-
-
+			return render(request, 'accounts/my_profile.html')
 	else:
-		form = Genres_choices()
 	
-	return render(request, 'accounts/genres.html', {'form':form})
+		return render(request, 'accounts/genres.html')
 
 
 
@@ -173,9 +165,9 @@ def edit_profile_view(request):
 
     return render(request, 'accounts/homepage.html', context)
 
-#-------------------------------------------------------------------------
-# recent changes (after stable version)
 
+
+#------------------------------- currently working on ----------
 
 # users_list view used in the my_profile view
 
@@ -224,8 +216,8 @@ def users_list(request):
 
 	return render(request, "accounts/users_list.html", context)
 
-# any user's profile view
 
+# any user's profile view
 @login_required
 def profile_view(request, slug):
 
@@ -265,7 +257,7 @@ def profile_view(request, slug):
 
 
 
-
+### need to work on ---------------------------
 
 
 

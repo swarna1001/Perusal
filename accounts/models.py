@@ -21,8 +21,7 @@ class Profile(models.Model):
 	bio = models.CharField(max_length=255, blank=True)
 	friends = models.ManyToManyField("Profile", blank=True)
 	
-	adds_classic = models.BooleanField('classic', default=False)
-
+	genres = models.CharField(max_length=100, blank=True)
 
 
 	def __str__(self):
