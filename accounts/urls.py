@@ -13,6 +13,8 @@ urlpatterns = [
     url(r'^edit_profile/$', views.edit_profile_view, name="edit_profile"),
     url(r'^my_profile/$', views.my_profile_view, name="my_profile"),
     url(r'^genres/$', views.genres_view, name="genres"),
+    url(r'^friends/$', views.friend_list, name="friend_list"),
 
 ]
+
 

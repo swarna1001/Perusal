@@ -163,7 +163,7 @@ def edit_profile_view(request):
     	'p_form' : p_form,
     }
 
-    return render(request, 'accounts/homepage.html', context)
+    return render(request, 'accounts/edit_profile.html', context)
 
 
 
@@ -260,14 +260,13 @@ def profile_view(request, slug):
 ### need to work on ---------------------------
 
 
-
 def friend_list(request):
 	p = request.user.profile
 	friends = p.friends.all()
 	context = { 
 		'friends' : friends
 	}
-	return render (request, "accounts/friend_list.html", context)
+	return render (request, "accounts/friends_list.html", context)
 
 
 @login_required
