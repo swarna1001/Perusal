@@ -126,6 +126,10 @@ hr.solid{
   margin-top: 10px;
 }
 
+.my-col-12{
+  margin-top: 10px;
+}
+
 
 .profile-image{
   margin: 20px 0;
@@ -160,9 +164,7 @@ hr.solid{
   margin-top: 20px;
 }
 
-.top-col{
-  background: #e0e2e4;
-}
+
 
 /* logout button styling 
 .my-sm-0 {
@@ -222,7 +224,7 @@ hr.solid{
 
 .search
 {
-  border: 2px solid #CF5C3F;
+  border: 1px solid #CF5C3F;
   overflow: auto;
   border-radius: 5px;
   -moz-border-radius: 5px;

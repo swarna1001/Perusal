@@ -32,11 +32,11 @@
             margin-top: 40px;
         }
 
-      .my-col{
+      /*.my-col{
             border: 1px solid blue;
         }
         
-         /* .my-row{
+          .my-row{
             border: 3px solid red;
         } */
 
@@ -104,11 +104,21 @@
     <div class="container my-container">
         
         <div class="row my-row">        <!-- ROW 1  TITLE  -->
-            <div class="col-7 my-col top-col my-col-11">
+            <div class="col-4 my-col top-col my-col-11">
                     <div class="title"><span>Perusal</span></div>    
             </div>
 
-            <div class="col-5 my-col top-col my-col-12 text-right">
+            <div class="col-6 my-col top-col my-col-12 text-center">
+                    <div class="search">
+                    <form class="search-form">
+                            <input class="search-txt" type="text" name="q" placeholder="search">
+                                <a class="search-btn" href="#">
+                                <i class="fas fa-search"></i></a>
+                            </form>
+                    </div>    
+            </div>
+
+            <div class="col-2 my-col top-col my-col-13 text-right">
                     <ul>
                         <li>
                             <form class="logout-link" action="/accounts/logout/" method="post">
@@ -120,7 +130,8 @@
             </div> 
         </div>
 
-        <div class="row justify-content-center my-row">       <!-- ROW 2   SEARCH BAR  -->
+        <!-- ROW 2   SEARCH BAR  -->
+        <!--<div class="row justify-content-center my-row">       
             <div class="col-6 my-col my-col-21 text-center">
                 <div class="search">
                     <form class="search-form">
@@ -132,7 +143,7 @@
 
                     
             </div>  
-        </div>  
+        </div> -->  
 
 
         <div class="row justify-content-center my-row top-row"><!-- ROW 3  DP, POSTS, FRIENDS-->

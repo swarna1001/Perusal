@@ -11,7 +11,6 @@ from .models import Profile, FriendRequest
 # add Post model to the feed app
 
 from feed.models import Post
-
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -253,7 +252,7 @@ def profile_view(request, slug):
 		#'post_count': user_posts.count
 	}
 
-	return render(request, "accounts/test_profile.html", context)
+	return render(request, "accounts/profile.html", context)
 
 
 

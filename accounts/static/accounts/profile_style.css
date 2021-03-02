@@ -112,6 +112,11 @@ hr.solid{
 }
 
 
+.row-2{
+  margin-top: 5px;
+}
+
+
 .logout-link{
   margin-top: 10px;
 }
@@ -130,7 +135,7 @@ hr.solid{
 }
 
 .friends-col{
-  margin-top: 53px;
+  margin-top: 40px;
   margin-left: 50px;
 }
 
@@ -211,12 +216,12 @@ hr.solid{
 
 /* styling the display */
 
-.main-card{
+/*.main-card{
   background: #e0e2e4;
   padding: 15px;
   margin-bottom: 10px;
   font-size: 14px;
-}
+} */
 
 
 
