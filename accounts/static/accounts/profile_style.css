@@ -26,7 +26,7 @@ body{
 .wrapper .sidebar{
   z-index: 1;
   background: #454140;
-  
+  position: fixed;
   width: 225px; 
   height: 100%;
   overflow-y: auto;
@@ -73,9 +73,10 @@ hr.solid{
   display: block;
   color: #fff;
   position: relative;
-  padding: 80px 35px;
+  padding: 0px 35px;
   transition: 0.3s;
   transition-property: color;
+  margin-top: 180px;
 }
 
 .wrapper .sidebar .sidebar-menu .item .edit-menu-btn{
@@ -222,6 +223,4 @@ hr.solid{
   margin-bottom: 10px;
   font-size: 14px;
 } */
-
-
 
