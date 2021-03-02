@@ -259,6 +259,7 @@ def profile_view(request, slug):
 ### need to work on ---------------------------
 
 
+
 def friend_list(request):
 	p = request.user.profile
 	friends = p.friends.all()

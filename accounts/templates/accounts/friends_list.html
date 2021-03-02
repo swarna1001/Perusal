@@ -1,75 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>{{user.username}}</title>
-
-	<!-- loads the path to your static files -->
     {% load static %}
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 
+    <meta charset="utf-8">
 
-	<link rel="stylesheet" type="text/css" href="{% static 'accounts/login_style.css' %}"/>
+    <title> {{ user.username }}</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8">      
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/base_style.css' %}"/>
+
+    <style>
+        .my-container{
+            /*margin-left: 230px;*/
+            border: 1px solid green; 
+           /* max-width: 1280px; */
+        }
+  
+        .my-col{
+            border: 1px solid blue;
+        }
+        
+         .my-row{
+            border: 1px solid red;
+         } 
+
+        </style>
 
 </head>
 <body>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      {% if friends %}
-      <div class="card card-signin my-5">
-        <div class="card-body">
-          {% for user_p in friends %}
-          <a href="{{ user_p.get_absolute_url }}"
-            ><img
-              src="{{ user_p.image.url }}"
-              class="rounded mr-2"
-              width="40"
-              height="40"
-              alt=""
-          /></a>
-          <a class="text-dark" href="{{ user_p.get_absolute_url }}"
-            ><b>{{ user_p }}</b></a>
+
+
+  <div class="container-fluid my-container">
+        
+    <div class="row my-row">        <!-- ROW 1  TITLE  -->
+        <div class="col-md-2 my-col top-col my-col-11">
+
+
+    <div class="wrapper">
+
+        <div class="sidebar">
+                        <div class="sidebar-menu">
+                            <center class="profile">
+                                <img src="{{ user.profile.image.url }}" alt="">
+                                <p> {{ user.username }} </p>
+                                <hr class="solid">
+                            </center>
+
+                            <li class="item">
+                                <a href="{% url 'accounts:edit_profile' %}"  class="edit-menu-btn">
+                                <i class="fas fa fa-user"></i><span>Edit Profile</span></a>
+                            </li>
+                            <center> <hr class="solid"> </center>
+
+                            <li class="item">
+                                <a href="{% url 'accounts:genres' %}"  class="menu-btn">
+                                <i class="fa fa-sticky-note"></i><span>Genres</span></a>
+                            </li>
+
+                            <li class="item">
+                                <a href="#profile" class="menu-btn">
+                                <i class="fas fa fa-book"></i><span>Read List</span></a>
+                            </li>
+
+                            <li class="item">
+                                <a href="{% url 'accounts:friend_list' %}" class="menu-btn">
+                                <i class="fas fa fa-users"></i><span>Friends</span>
+                        </a>
+                            </li>
+
+                            <li class="item">
+                                <a href="#posts" class="menu-btn">
+                                <i class="fas fa-newspaper"></i><span>Posts</span></a>
+                            </li>
+
+                            <div>
+                                <li class="item" id="settings">
+                                    <a href="#settings" class="last-menu-btn">
+                                    <i class="fas fa-cog"></i><span>Settings</span> </a>
+                                </li>
+                            </div>
+                        </div>
+                </div> <!-- sidebar end -->
+
+            </div>  <!-- wrapper end -->
+            </div> <!-- sidebar column end -->
+
+            <div class="col-md-10 my-col top-col my-col-12 "> <!-- COL 2 -->
+
+                <div class="row my-row">   <!-- ROW 1 --> 
+
+                    <div class="col-7 my-col top-col my-col-11">  <!-- ROW-1 COL 1  TITLE  -->
+                        <div class="title"><span>Perusal</span></div>    
+                    </div>
+
+                        <!-- ROW-1 COL 1  LOG - OUT  -->
+                        <div class="col-5 my-col top-col my-col-12 text-right"> 
+                            <form class="logout-link" action="/accounts/logout/" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Logout</button>
+                            </form>
+                        </div> 
+                </div>
+
+                <!-- ROW 2   SEARCH BAR  -->
+                <div class="row justify-content-center my-row row-2">    
+                    <div class="col-6 my-col my-col-21 text-center">
+                        <div class="search">
+                            <form class="search-form">
+                            <input class="search-txt" type="text" name="q" placeholder="search">
+                                <a class="search-btn" href="#">
+                                <i class="fas fa-search"></i></a>
+                            </form>
+                        </div>     
+                    </div>  
+                </div>
+
+    <!-- ############## till here COMMON TEMPLATE FOR ALL THE PAGES  ################# -->
+
+                <div class="row justify-content-center my-row row-3">
+                    <div class="col-9 my-col my-col-31 text-center">
+
+                        {% if friends %}
+                            <div class="card card-signin my-5">
+                                <div class="card-body">
+                                    {% for user_p in friends %}
+                                        <a href="{{ user_p.get_absolute_url }}"> <img src="{{ user_p.image.url }}" class="rounded mr-2" width="40" height="40" alt=""/></a>
+                                        <a class="text-dark" href="{{ user_p.get_absolute_url }}">
+                                        <b>{{ user_p }}</b></a>
           
-          <br /><br />
-          {% endfor %}
-        </div>
-      </div>
-      {% else %}
-      <h5>
-        <i
-          >You have no friends now! Make some new
-          <a href="{% url 'users_list' %}">friends here!</a></i
-        >
-      </h5>
-      {% endif %}
-    </div>
-    <div class="col-md-4">
-      <div class="card card-signin my-5">
-        <a href="{{ request.user.profile.get_absolute_url }}"
-          ><img
-            class="card-img-top"
-            src="{{ request.user.profile.image.url }}"
-            alt=""
-        /></a>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{ request.user }}</h5>
-          <h6 class="text-center">
-            {{ request.user.profile.friends.count }}
-            <p class="text-muted">Friends</p>
-          </h6>
-          <p class="card-text text-center">{{ request.user.profile.bio }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
+                                        <br /><br />
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
 
-</div>
+                    <div class="col-3">
+                        <div class="card card-signin my-5">
+                            <a href="{{ request.user.profile.get_absolute_url }}"><img class="card-img-top" src="{{ request.user.profile.image.url }}" alt="" /></a>
+
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ request.user }}</h5>
+                                <h6 class="text-center"> {{ request.user.profile.friends.count }}
+                                <p class="text-muted">Friends</p> </h6>
+                                <p class="card-text text-center">{{ request.user.profile.bio }}</p>
+                            </div>
+                        </div>
+                    </div>
 
 
 
+                        
+                </div>
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div> <!-- CONTENT COLUMN END -->
+        </div> <!-- ROW END -->
+    </div>  <!-- CONTAINER END -->
 
 </body>
 </html>

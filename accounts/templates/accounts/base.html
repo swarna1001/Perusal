@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8">      
     </script>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'accounts/homepage_style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/base_style.css' %}"/>
 
     <style>
         .my-container{
@@ -92,7 +92,7 @@
                 </div> <!-- sidebar end -->
 
             </div>  <!-- wrapper end -->
-            </div>
+            </div>    <!-- sidebar column end -->
 
             <div class="col-md-10 my-col top-col my-col-12 "> <!-- COL 2 -->
 
@@ -126,90 +126,10 @@
 
     <!-- ############## till here COMMON TEMPLATE FOR ALL THE PAGES  ################# -->
 
-                <!-- ROW 3  MAIN CONTENT-->
-                <div class="row justify-content-center my-row top-row">
-                    <div class="col-9 my-col my-col-31 text-center">
 
-                        <div class="read-label text-center">
-                            <h3>Top Reads</h3>
-                            
-                        </div>
-
-
-
-                        <div class="top-reads">
-                            <div class="main-card">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been .</p>
-                            </div>
-                            <div class="main-card">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's .</p>
-                            </div>
-                            <div class="main-card">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the .</p>
-                            </div>
-                            <div class="main-card">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the .</p>
-                            </div>
-
-                        </div>
-
-                        <div>
-                            <h1> Welcome {{ user.username }} </h1>
-                            <h2>{{ user.profile.bio}}</h2>
-                            <h3>{{user.profile.genres}}</h3>
-                        </div>
-
-                    </div> 
-
-                    <!-- RIGHT SIDEBAR -->
-
-                    <div class="col-3 my-col my-col-32">
-
-                        <div class="suggest-label text-center">
-                            <h3>Suggested</h3>
-                            
-                        </div>
-
-                        <div class="right-sidebar">
-                            <div>
-
-                                {% if users %} 
-                                    {% for user_p in users %}
-                                        <div class="card side-card">
-                                            <a href="{{ user_p.get_absolute_url }}"><img
-                                            src="{{ user_p.image.url }}" class="rounded mr-2" width="80" height="80" alt=""/></a>
-                                            <a class="text-dark" href="{{ user_p.get_absolute_url }}"><b> {{ user_p }} </b></a>
-
-                                        </div>
-
-                                    {% endfor %}
-                                {% endif %}
-                            <br /><br />
-          
-        
-      </div>
-     
-      <h5><i>No new people to add now! Please come back later!</i></h5>
-    </div>
-
-                    </div>
- 
-                </div> 
-
-                         
-            </div> <!-- CONTENT COLUMN END -->
+          </div> <!-- CONTENT COLUMN END -->
         </div> <!-- ROW END -->
     </div>  <!-- CONTAINER END -->
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
