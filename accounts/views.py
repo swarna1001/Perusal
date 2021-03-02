@@ -52,7 +52,7 @@ def login_view(request):
 			user = form.get_user()
 			login(request, user)
 
-			return redirect('accounts:my_profile')
+			return redirect('accounts:homepage')
 	else:
 		form = AuthenticationForm()
 
@@ -71,7 +71,7 @@ def logout_view(request):
 
 
 @login_required
-def my_profile_view(request):
+def homepage_view(request):
 
 	users = Profile.objects.exclude(user = request.user)
 	sent_friend_requests = FriendRequest.objects.filter(from_user = request.user)
@@ -114,7 +114,7 @@ def my_profile_view(request):
 	}
 
 	
-	return render(request, 'accounts/my_profile.html', context)
+	return render(request, 'accounts/homepage.html', context)
 
 
 @login_required
@@ -126,7 +126,7 @@ def genres_view(request):
 			savedata.genres = request.POST.get('genres')
 			savedata.save()
 
-			return render(request, 'accounts/my_profile.html')
+			return render(request, 'accounts/homepage.html')
 	else:
 	
 		return render(request, 'accounts/genres.html')
@@ -147,7 +147,7 @@ def edit_profile_view(request):
     		p_form.save()
 
     		messages.success(request, f'your profile has been updated!')
-    		return redirect('accounts:my_profile')
+    		return redirect('accounts:homepage')
 
     	else:
     		messages.success(request, f'Fill all the fields!')
