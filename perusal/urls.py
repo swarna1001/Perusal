@@ -16,6 +16,9 @@ urlpatterns = [
     path(r'accounts/', include('accounts.urls')),   
     path(r'', views.basic_home_view, name="basic_home"), 
     path('accounts/<slug>/', account_views.profile_view, name='profile_view'),
+    path('accounts/friend-request/send/<int:id>/', account_views.send_friend_request, 
+    	name='send_friend_request'),
+
 
 ]
 

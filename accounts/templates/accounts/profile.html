@@ -160,7 +160,7 @@
                         </div>
 
                         <div>
-                            <form class="request-link" action="#" method="post">
+                            <form class="request-link" action="/accounts/friend-request/send/{{ u.id }}/" method="post">
                                 {% csrf_token %}
                                     <button class="btn btn-primary btn-lg btn-block" type="submit"> Request</button>
                             </form>
@@ -191,6 +191,19 @@
                 <div class="row justify-content-center my-row">       <!-- ROW 6  POSTS -->
                     <div class="col-6 my-col my-col-61 text-center">
                         <h1>Posts</h1> 
+                    </div>  
+                </div> 
+
+
+                <!-- FOR TESTING -->
+
+                <div class="row justify-content-center my-row">       <!-- ROW 7  TESTS -->
+                    <div class="col-6 my-col my-col-61 text-center">
+                        <h4>Friend requests</h4>
+
+                        <h3>{{ u.profile.friends.count}}</h3>
+
+
                     </div>  
                 </div> 
 
