@@ -16,8 +16,21 @@ urlpatterns = [
     path(r'accounts/', include('accounts.urls')),   
     path(r'', views.basic_home_view, name="basic_home"), 
     path('accounts/<slug>/', account_views.profile_view, name='profile_view'),
+
     path('accounts/friend-request/send/<int:id>/', account_views.send_friend_request, 
     	name='send_friend_request'),
+
+	path('accounts/friend-request/cancel/<int:id>/', account_views.cancel_friend_request, 
+		name='cancel_friend_request'),
+
+	path('accounts/friend-request/accept/<int:id>/', account_views.accept_friend_request, 
+		name='accept_friend_request'),
+
+	path('accounts/friend-request/delete/<int:id>/', account_views.delete_friend_request, 
+		name='delete_friend_request'),
+
+	path('accounts/friend/delete/<int:id>/', account_views.delete_friend, 
+		name='delete_friend'),
 
 
 ]

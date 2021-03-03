@@ -124,7 +124,7 @@
                 </div>
 
 
-                <!-- ROW 3  DP, POSTS, FRIENDS-->
+                <!-- ROW 3  DP, POSTS, FRIENDS, REQUEST-->
                 <div class="row justify-content-center my-row top-row main-card">
                     <div class="col-3 my-col my-col-31 text-right">
                         <img class="profile-image" src="{{ u.profile.image.url }}">             
@@ -159,16 +159,49 @@
                             <h3>Friends</h3>                    
                         </div>
 
+
+                    <!-- RECENT CHANGES ------REQUEST BUTTON -->
+
                         <div>
+
+                            {% if button_status == 'not_friend' %}
+                                <small>
+                                    <a class="btn btn-primary" href="/users/friend-request/send/{{ u.id }}/" > Request </a>
+                                </small>
+
+                            {% elif button_status == 'friend_request_sent' %}
+                                <small> <a class="btn btn-warning" href="/users/friend-request/cancel/{{ u.id }}/" > Cancel </a></small>
+
+                            {% elif button_status == 'friend_request_received' %}
+                                <small> <a class="btn btn-success mr-2" href="/users/friend-request/accept/{{ u.id }}/" > Accept </a></small>
+                                
+                                <small> <a class="btn btn-danger" href="/users/friend-request/delete/{{ u.id }}/" > Delete </a></small>
+                    
+                            {% else %}
+                            
+                                <small> <a class="btn btn-danger" href="/users/friend/delete/{{ u.id }}/"> UnFriend </a>
+                                </small>
+                            {% endif %}
+                        </div>
+
+         
+
+
+
+
+
+                        <!--<div>
                             <form class="request-link" action="/accounts/friend-request/send/{{ u.id }}/" method="post">
                                 {% csrf_token %}
                                     <button class="btn btn-primary btn-lg btn-block" type="submit"> Request</button>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
-                </div> 
+                </div>
 
-                <div class="row justify-content-center my-row">       <!-- ROW 4 BIO, REQUEST-->
+                <!-- ROW 4 BIO--> 
+
+                <div class="row justify-content-center my-row">       
                     <div class="col-10 my-col my-col-41">
                         <div class="user-bio">
                             <h4>{{ u.profile.bio }}</h4>
@@ -199,7 +232,7 @@
 
                 <div class="row justify-content-center my-row">       <!-- ROW 7  TESTS -->
                     <div class="col-6 my-col my-col-61 text-center">
-                        <h4>Friend requests</h4>
+                        <h4>Friends</h4>
 
                         <h3>{{ u.profile.friends.count}}</h3>
 

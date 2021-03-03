@@ -70,7 +70,7 @@ def logout_view(request):
 		return render(request, 'accounts/logout.html')
 
 
-@login_required
+"""@login_required
 def homepage_view(request):
 
 	users = Profile.objects.exclude(user = request.user)
@@ -114,7 +114,97 @@ def homepage_view(request):
 	}
 
 	
+	return render(request, 'accounts/homepage.html', context) """
+
+
+# recent changes
+
+@login_required
+def homepage_view(request):
+
+	users = Profile.objects.exclude(user = request.user)
+	print(users)
+
+	"""friend = users.friends.all()
+	printf("FRIENDS ########")
+	printf(friend)"""
+
+	friend_count = 0
+	logged_in_user_friends = []
+	suggested_user_list = []
+
+	sent_friend_requests = FriendRequest.objects.filter(from_user = request.user)
+	sent_to = []
+	friends = []
+	for user in users:
+		friend = user.friends.all()	
+		print(friend)
+		for f in friend:
+			if f.user == request.user:
+				friend_count = friend_count + 1
+
+				print(user)
+				logged_in_user_friends.append(user)
+
+				print("FRIENDS :::::")
+				print(logged_in_user_friends)
+
+	print(friend_count)
+	
+	for frnd in users:
+		for frnds in logged_in_user_friends:
+			if frnd != frnds:
+				suggested_user_list.append(frnd)
+
+	print(suggested_user_list)
+
+
+	
+
+	# till here TESTED -------------------
+
+	my_friends = request.user.profile.friends.all()
+	print(my_friends)
+
+	for i in my_friends:
+		if i in friends:
+			friends.remove(i)
+
+	if request.user.profile in friends:
+		friends.remove(request.user.profile)
+
+	random_list = random.sample(list(users), min(len(list(users)), 10))
+
+	for r in random_list:
+		if r in friends:
+			random_list.remove(r)
+
+	friends += random_list
+
+	for i in my_friends:
+		if i in friends:
+			friends.remove(i)
+
+	for sent in sent_friend_requests:
+		sent_to.append(sent.to_user)
+
+	context = {
+			'users' : suggested_user_list,
+			'friend_count' : friend_count
+	}
+
+	
 	return render(request, 'accounts/homepage.html', context)
+
+
+
+
+
+
+
+
+
+
 
 
 @login_required
@@ -130,7 +220,7 @@ def genres_view(request):
 	else:
 	
 		return render(request, 'accounts/genres.html')
-
+ 
 
 
 @login_required
@@ -258,15 +348,50 @@ def profile_view(request, slug):
 
 ### need to work on ---------------------------
 
-
-
 def friend_list(request):
+	p = request.user.profile
+
+	users = Profile.objects.exclude(user = request.user)
+
+	friend_count = 0
+	logged_in_user_friends = []
+	suggested_user_list = []
+
+	for user in users:
+		friend = user.friends.all()	
+		print(friend)
+		for f in friend:
+			if f.user == request.user:
+				friend_count = friend_count + 1
+
+				print(user)
+				logged_in_user_friends.append(user)
+
+				print("FRIENDS :::::")
+				print(logged_in_user_friends)
+
+	print(friend_count)
+
+
+	context = { 
+		'friends' : logged_in_user_friends,
+		'friend_count' : friend_count
+	}
+	return render (request, "accounts/friends_list.html", context)
+
+
+	
+
+
+# EARLIER VERSION
+
+"""def friend_list(request):
 	p = request.user.profile
 	friends = p.friends.all()
 	context = { 
 		'friends' : friends
 	}
-	return render (request, "accounts/friends_list.html", context)
+	return render (request, "accounts/friends_list.html", context)"""
 
 
 @login_required
