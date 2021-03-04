@@ -231,7 +231,7 @@ def genres_view(request):
 			savedata.genres = request.POST.get('genres')
 			savedata.save()
 
-			return render(request, 'accounts/homepage.html')
+			return redirect('accounts:homepage')
 	else:
 	
 		return render(request, 'accounts/genres.html')
