@@ -70,7 +70,7 @@ def logout_view(request):
 		return render(request, 'accounts/logout.html')
 
 
-"""@login_required
+@login_required
 def homepage_view(request):
 
 	users = Profile.objects.exclude(user = request.user)
@@ -114,20 +114,17 @@ def homepage_view(request):
 	}
 
 	
-	return render(request, 'accounts/homepage.html', context) """
+	return render(request, 'accounts/homepage.html', context) 
 
 
 # recent changes
 
-@login_required
+"""@login_required
 def homepage_view(request):
 
 	users = Profile.objects.exclude(user = request.user)
+	print("1")
 	print(users)
-
-	"""friend = users.friends.all()
-	printf("FRIENDS ########")
-	printf(friend)"""
 
 	friend_count = 0
 	logged_in_user_friends = []
@@ -138,17 +135,19 @@ def homepage_view(request):
 	friends = []
 	for user in users:
 		friend = user.friends.all()	
+		print("2")
 		print(friend)
 		for f in friend:
 			if f.user == request.user:
 				friend_count = friend_count + 1
+				print("3")
 
 				print(user)
 				logged_in_user_friends.append(user)
 
-				print("FRIENDS :::::")
+				print("FRIENDS 4444  :::::")
 				print(logged_in_user_friends)
-
+	print("5")
 	print(friend_count)
 	
 	for frnd in users:
@@ -156,6 +155,7 @@ def homepage_view(request):
 			if frnd != frnds:
 				suggested_user_list.append(frnd)
 
+	print("6")
 	print(suggested_user_list)
 
 
@@ -194,7 +194,7 @@ def homepage_view(request):
 	}
 
 	
-	return render(request, 'accounts/homepage.html', context)
+	return render(request, 'accounts/homepage.html', context) """
 
 
 
@@ -348,7 +348,7 @@ def profile_view(request, slug):
 
 ### need to work on ---------------------------
 
-def friend_list(request):
+"""def friend_list(request):
 	p = request.user.profile
 
 	users = Profile.objects.exclude(user = request.user)
@@ -377,7 +377,7 @@ def friend_list(request):
 		'friends' : logged_in_user_friends,
 		'friend_count' : friend_count
 	}
-	return render (request, "accounts/friends_list.html", context)
+	return render (request, "accounts/friends_list.html", context) """
 
 
 	
@@ -385,13 +385,13 @@ def friend_list(request):
 
 # EARLIER VERSION
 
-"""def friend_list(request):
+def friend_list(request):
 	p = request.user.profile
 	friends = p.friends.all()
 	context = { 
 		'friends' : friends
 	}
-	return render (request, "accounts/friends_list.html", context)"""
+	return render (request, "accounts/friends_list.html", context)
 
 
 @login_required

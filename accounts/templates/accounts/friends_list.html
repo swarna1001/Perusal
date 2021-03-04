@@ -150,7 +150,8 @@
 
                             <div class="card-body">
                                 <h5 class="card-title text-center">{{ request.user }}</h5>
-                                <h6 class="text-center"> {{ friend_count }}
+        
+                                <h6 class="text-center"> {{ request.user.profile.friends.count }}
                                 <p class="text-muted">Friends</p> </h6>
                                 <p class="card-text text-center">{{ request.user.profile.bio }}</p>
                             </div>

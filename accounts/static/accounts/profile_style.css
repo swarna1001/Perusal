@@ -73,10 +73,10 @@ hr.solid{
   display: block;
   color: #fff;
   position: relative;
-  padding: 0px 35px;
+  padding: 70px 35px;
   transition: 0.3s;
   transition-property: color;
-  margin-top: 180px;
+  margin-top: 40px; 
 }
 
 .wrapper .sidebar .sidebar-menu .item .edit-menu-btn{

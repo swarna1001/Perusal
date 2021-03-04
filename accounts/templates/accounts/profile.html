@@ -61,6 +61,13 @@
                             <center> <hr class="solid"> </center>
 
                             <li class="item">
+                                <a href="#" class="menu-btn">
+                                <i class="fas fa fa-home"></i><span>Home</span>
+                                </a>
+                            </li>
+
+
+                            <li class="item">
                                 <a href="{% url 'accounts:genres' %}"  class="menu-btn">
                                 <i class="fa fa-sticky-note"></i><span>Genres</span></a>
                             </li>
@@ -166,20 +173,20 @@
 
                             {% if button_status == 'not_friend' %}
                                 <small>
-                                    <a class="btn btn-primary" href="/users/friend-request/send/{{ u.id }}/" > Request </a>
+                                    <a class="btn btn-primary" href="/accounts/friend-request/send/{{ u.id }}/"  action="{% url 'accounts:homepage' %}" > Request </a>
                                 </small>
 
                             {% elif button_status == 'friend_request_sent' %}
-                                <small> <a class="btn btn-warning" href="/users/friend-request/cancel/{{ u.id }}/" > Cancel </a></small>
+                                <small> <a class="btn btn-warning" href="/accounts/friend-request/cancel/{{ u.id }}/" > Cancel </a></small>
 
                             {% elif button_status == 'friend_request_received' %}
-                                <small> <a class="btn btn-success mr-2" href="/users/friend-request/accept/{{ u.id }}/" > Accept </a></small>
+                                <small> <a class="btn btn-success mr-2" href="/accounts/friend-request/accept/{{ u.id }}/" > Accept </a></small>
                                 
-                                <small> <a class="btn btn-danger" href="/users/friend-request/delete/{{ u.id }}/" > Delete </a></small>
+                                <small> <a class="btn btn-danger" href="/accounts/friend-request/delete/{{ u.id }}/" > Delete </a></small>
                     
                             {% else %}
                             
-                                <small> <a class="btn btn-danger" href="/users/friend/delete/{{ u.id }}/"> UnFriend </a>
+                                <small> <a class="btn btn-danger" href="/accounts/friend/delete/{{ u.id }}/"> UnFriend </a>
                                 </small>
                             {% endif %}
                         </div>
