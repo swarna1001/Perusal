@@ -61,7 +61,7 @@
                             <center> <hr class="solid"> </center>
 
                             <li class="item">
-                                <a href="#" class="menu-btn">
+                                <a href="{% url 'accounts:homepage' %}" class="menu-btn">
                                 <i class="fas fa fa-home"></i><span>Home</span>
                                 </a>
                             </li>
@@ -173,7 +173,7 @@
 
                             {% if button_status == 'not_friend' %}
                                 <small>
-                                    <a class="btn btn-primary" href="/accounts/friend-request/send/{{ u.id }}/"  action="{% url 'accounts:homepage' %}" > Request </a>
+                                    <a class="btn btn-primary" href="/accounts/friend-request/send/{{ u.id }}/" > Request </a>
                                 </small>
 
                             {% elif button_status == 'friend_request_sent' %}

@@ -75,6 +75,7 @@ def homepage_view(request):
 
 	users = Profile.objects.exclude(user = request.user)
 	sent_friend_requests = FriendRequest.objects.filter(from_user = request.user)
+	print(sent_friend_requests)
 	sent_to = []
 	friends = []
 	for user in users:
@@ -94,6 +95,8 @@ def homepage_view(request):
 		friends.remove(request.user.profile)
 
 	random_list = random.sample(list(users), min(len(list(users)), 10))
+	print("3")
+	print(random_list)
 
 	for r in random_list:
 		if r in friends:
@@ -107,6 +110,8 @@ def homepage_view(request):
 
 	for sent in sent_friend_requests:
 		sent_to.append(sent.to_user)
+
+	print(friends)
 
 	context = {
 			'users' : friends,
