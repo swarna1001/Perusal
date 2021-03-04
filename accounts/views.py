@@ -75,7 +75,6 @@ def homepage_view(request):
 
 	users = Profile.objects.exclude(user = request.user)
 	sent_friend_requests = FriendRequest.objects.filter(from_user = request.user)
-	print(sent_friend_requests)
 	sent_to = []
 	friends = []
 	for user in users:
@@ -87,20 +86,32 @@ def homepage_view(request):
 		friends += friend
 
 	my_friends = request.user.profile.friends.all()
+	print(my_friends)
+
+
 	for i in my_friends:
 		if i in friends:
+			print(i)
 			friends.remove(i)
+	print("FRIENDS :::::::::::", friends)
 
 	if request.user.profile in friends:
 		friends.remove(request.user.profile)
 
-	random_list = random.sample(list(users), min(len(list(users)), 10))
-	print("3")
-	print(random_list)
+	print("FRIENDS NEW LIST :::::::::::", friends)
+
+
+
+
+	# ON USING THESE CODES, SUPERUSER PROFILE IS NOT SHOWN
+
+	"""random_list = random.sample(list(users), min(len(list(users)), 10))
 
 	for r in random_list:
 		if r in friends:
 			random_list.remove(r)
+
+	print("RANDOM :", random_list)
 
 	friends += random_list
 
@@ -109,22 +120,21 @@ def homepage_view(request):
 			friends.remove(i)
 
 	for sent in sent_friend_requests:
-		sent_to.append(sent.to_user)
-
-	print(friends)
+		sent_to.append(sent.to_user)"""
 
 	context = {
 			'users' : friends,
 			'sent' : sent_to
 	}
 
+	print("USERS are", friends)
 	
 	return render(request, 'accounts/homepage.html', context) 
 
 
 # recent changes
-
-"""@login_required
+"""
+@login_required
 def homepage_view(request):
 
 	users = Profile.objects.exclude(user = request.user)
@@ -199,7 +209,7 @@ def homepage_view(request):
 	}
 
 	
-	return render(request, 'accounts/homepage.html', context) """
+	return render(request, 'accounts/homepage.html', context)"""
 
 
 
@@ -353,7 +363,8 @@ def profile_view(request, slug):
 
 ### need to work on ---------------------------
 
-"""def friend_list(request):
+"""
+def friend_list(request):
 	p = request.user.profile
 
 	users = Profile.objects.exclude(user = request.user)
@@ -406,7 +417,7 @@ def send_friend_request(request, id):
 						from_user = request.user,
 						to_user = user )
 
-	return HttpResponseRedirect('/accounts/{}'.format(user.profile.slug))
+	return HttpResponseRedirect('/accounts/homepage/')
 
 @login_required
 def cancel_friend_request(request, id):
@@ -416,7 +427,7 @@ def cancel_friend_request(request, id):
 				to_user = user).first()
 
 	frequest.delete()
-	return HttpResponseRedirect('/accounts/{}'.format(user.profile.slug))
+	return HttpResponseRedirect('/accounts/homepage/')
 
 
 @login_required
@@ -436,7 +447,7 @@ def accept_friend_request(request, id):
 		request_received.delete()
 
 	frequest.delete()
-	return HttpResponseRedirect('/accounts/{}'.format(request.user.profile.slug))
+	return HttpResponseRedirect('/accounts/homepage/')
 
 
 @login_required
@@ -444,7 +455,7 @@ def delete_friend_request(request, id):
 	from_user = get_object_or_404(User, id)
 	frequest = FriendRequest.objects.filter(from_user = from_user, to_user = request.user).first()
 	frequest.delete()
-	return HttpResponseRedirect('/accounts/{}'.format(request.user.profile.slug))
+	return HttpResponseRedirect('/accounts/homepage/')
 
 
 def delete_friend(request, id):

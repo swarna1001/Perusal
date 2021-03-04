@@ -68,15 +68,14 @@ hr.solid{
   transition-property: color;
 }
 
-
 .wrapper .sidebar .sidebar-menu .item .last-menu-btn{
   display: block;
   color: #fff;
   position: relative;
-  padding: 0px 35px;
+  padding: 70px 35px;
   transition: 0.3s;
   transition-property: color;
-  margin-top: 180px;
+  margin-top: 40px; 
 }
 
 .wrapper .sidebar .sidebar-menu .item .edit-menu-btn{
@@ -169,5 +168,6 @@ hr.solid{
   }
 
 }
- /* COMMON CSS FOR ALL THE PAGES */
 
+
+ /* COMMON CSS FOR ALL THE PAGES */
