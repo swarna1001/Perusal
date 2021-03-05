@@ -15,7 +15,7 @@ urlpatterns = [
 
     url(r'^homepage/$', views.homepage_view, name="homepage"),
 
-    url(r'^genres/$', views.genres_view, name="genres"),
+    #url(r'^genres/$', views.genres_view, name="genres"),
     url(r'^friends/$', views.friend_list, name="friend_list"),
 
 ]

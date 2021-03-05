@@ -47,7 +47,6 @@
             <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
             <div class="media-body">
                 <h2 class="account-heading">{{ user.username }} </h2>
-
                  
             </div>
 
@@ -81,95 +80,4 @@
 
 </body>
 </html>
-
-	<!--wrapper start-->
-  <!--  <div class="wrapper"> -->
-        <!--header menu start-->
-        <!--<div class="header">
-            <div class="header-menu">
-                <div class="sidebar-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul>
-                    <li>
-                        <div class="search-box">
-                            <input class="search-txt" type="text" name="q" placeholder="search">
-                                <a class="search-btn" href="#">
-                                <i class="fas fa-search"></i></a>
-                        </div>
-                    </li>
-
-                    <li>
-						<form class="logout-link" action="/accounts/logout/" method="post">
-							{% csrf_token %}
-						<button class="logout-button" type="submit">Log Out</button>
-						</form>
-					</li>
-                    </ul> 
-                </div>
-            </div> -->
-
-<!--header menu end-->
-
-<!--sidebar start-->
-    <!--<div class="sidebar">
-        <div class="sidebar-menu">
-            <center class="profile">
-                <img src="{{ user.profile.image.url }}">
-                    <p>{{ user.username }} </p>
-            </center>
-            
-
-            <li class="item" id="profile">
-                <a href="#profile" class="menu-btn">
-                    <i class="fas fa-book"></i><span>Genres <i class="fas fa-chevron-down drop-down"></i></span>
-                </a>
-                    <div class="sub-menu">
-                        <a href="#"><i class="fas fa-newspaper"></i><span>Genre-1</span></a>
-                        <a href="#"><i class="fas fa-newspaper"></i><span>Genre-2</span></a>
-                    </div>
-            </li>
-
-            <li class="item">
-                <a href="#" class="menu-btn">
-                    <i class="fas fa-pencil-ruler"></i><span>Posts</span>
-                </a>
-            </li>
-
-            <li class="item">
-                <a href="#" class="menu-btn">
-                    <i class="fas fa-user-friends"></i><span>Friends</span>
-                </a>
-            </li>
-        </div>
-    </div> -->
-
-<!--sidebar end-->
-
-   <!-- 
-
-	<nav>
-		<ul>
-			<li>
-				<form class="logout-link" action="/accounts/logout/" method="post">
-					{% csrf_token %}
-					<button class= "btn btn-success btn-lg btn-lg" type="submit">Logout</button>
-				</form>
-					
-			</li>
-		</ul>
-	</nav>
-
-
-    <h1 class="testdata"> Welcome {{ user.username }} </h1>
-
-	<script type="text/javascript">
-    $(document).ready(function()
-    {
-        $(".sidebar-btn").click(function(){$(".wrapper").toggleClass("collapse");
-    });
-    });
-</script>
-
--->
 

@@ -21,8 +21,6 @@ class Profile(models.Model):
 	bio = models.CharField(max_length=255, blank=True)
 	friends = models.ManyToManyField("Profile", blank=True)
 	
-	genres = models.CharField(max_length=100, blank=True)
-
 
 	def __str__(self):
 		return f'{self.user.username}'
@@ -55,5 +53,17 @@ class FriendRequest(models.Model):
 
 
 	def __str__(self):
-		return "From {}, to {}.format(self.from_user.username, self.to_user.username)"
+		return "From {}, to {}".format(self.from_user.username, self.to_user.username)
+
+
+
+class Genre(models.Model):
+	user = models.OneToOneField(User, on_delete = models.CASCADE, related_name='genres')
+	description = models.TextField(blank=True)
+
+
+	def __str__(self):
+		return f'{self.description}'
+
+
 

@@ -70,7 +70,85 @@ def logout_view(request):
 		return render(request, 'accounts/logout.html')
 
 
+
 @login_required
+def homepage_view(request):
+
+	# Suggest Users is a MESS
+
+	users = Profile.objects.exclude(user = request.user)
+	sent_friend_requests = FriendRequest.objects.filter(from_user = request.user)
+	sent_to = []
+	friends = []
+	for user in users:
+		friend = user.friends.all()	
+		print(friend)
+		for f in friend:
+			if f in friends:
+				friend = friend.exclude(user = f.user)
+
+		friends += friend
+
+	print("USERS : ", users)
+
+	print("1.  ", friends)
+
+	my_friends = request.user.profile.friends.all()
+	print("2.  ", my_friends)
+
+	for i in my_friends:
+		if i in friends:
+			friends.remove(i)
+
+	if request.user.profile in friends:
+		friends.remove(request.user.profile)
+
+	random_list = random.sample(list(users), min(len(list(users)), 10))
+	print("3.  ", random_list)
+
+	for r in random_list:
+		if r in friends:
+			random_list.remove(r)
+
+	friends += random_list
+
+	print("4.  ", friends)
+	for i in my_friends:
+		if i in friends:
+			friends.remove(i)
+
+	print("5.  ", friends)		
+	for sent in sent_friend_requests:
+		sent_to.append(sent.to_user)
+
+	context = {
+			'users' : friends,
+			'sent' : sent_to
+	}
+
+	print("6.  ", friends)
+
+	
+	return render(request, 'accounts/homepage.html', context)
+
+
+"""@login_required
+def genres_view(request):
+	current_user = request.user
+	if request.method == "POST":
+		if request.POST.get('genres'):
+			savedata = current_user.profile
+			savedata.genres = request.POST.get('genres')
+			savedata.save()
+
+			return redirect('accounts:homepage')
+	else:
+	
+		return render(request, 'accounts/genres.html')"""
+
+
+
+"""@login_required
 def homepage_view(request):
 
 	users = Profile.objects.exclude(user = request.user)
@@ -98,14 +176,14 @@ def homepage_view(request):
 	if request.user.profile in friends:
 		friends.remove(request.user.profile)
 
-	print("FRIENDS NEW LIST :::::::::::", friends)
+	print("FRIENDS NEW LIST :::::::::::", friends)"""
 
 
 
 
 	# ON USING THESE CODES, SUPERUSER PROFILE IS NOT SHOWN
 
-	"""random_list = random.sample(list(users), min(len(list(users)), 10))
+""" random_list = random.sample(list(users), min(len(list(users)), 10))
 
 	for r in random_list:
 		if r in friends:
@@ -122,14 +200,14 @@ def homepage_view(request):
 	for sent in sent_friend_requests:
 		sent_to.append(sent.to_user)"""
 
-	context = {
+""" context = {
 			'users' : friends,
 			'sent' : sent_to
 	}
 
 	print("USERS are", friends)
 	
-	return render(request, 'accounts/homepage.html', context) 
+	return render(request, 'accounts/homepage.html', context)""" 
 
 
 # recent changes
@@ -214,15 +292,7 @@ def homepage_view(request):
 
 
 
-
-
-
-
-
-
-
-
-@login_required
+"""@login_required
 def genres_view(request):
 	current_user = request.user
 	if request.method == "POST":
@@ -234,7 +304,7 @@ def genres_view(request):
 			return redirect('accounts:homepage')
 	else:
 	
-		return render(request, 'accounts/genres.html')
+		return render(request, 'accounts/genres.html')"""
  
 
 
