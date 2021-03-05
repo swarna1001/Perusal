@@ -58,12 +58,35 @@ class FriendRequest(models.Model):
 
 
 class Genre(models.Model):
+
 	user = models.OneToOneField(User, on_delete = models.CASCADE, related_name='genres')
-	description = models.TextField(blank=True)
+	
+	has_autobiography = models.BooleanField(default=False, verbose_name="Autobiography")
 
+	has_biography = models.BooleanField(default=False, verbose_name="Biography")
 
-	def __str__(self):
-		return f'{self.description}'
+	has_drama = models.BooleanField(default=False, verbose_name="Drama")
 
+	has_fairytale = models.BooleanField(default=False, verbose_name="Fairytale")
+
+	has_fantasy = models.BooleanField(default=False, verbose_name="Fantasy")
+
+	has_folktale = models.BooleanField(default=False, verbose_name="Folktale")
+
+	has_historical_fiction = models.BooleanField(default=False, verbose_name="Historical Fiction")
+
+	has_horror = models.BooleanField(default=False, verbose_name="Horror")
+
+	has_informational = models.BooleanField(default=False, verbose_name="Informational")
+
+	has_mystery = models.BooleanField(default=False, verbose_name="Mystery")
+
+	has_myth = models.BooleanField(default=False, verbose_name="Myth")
+
+	has_poetry = models.BooleanField(default=False, verbose_name="Poetry")
+
+	has_realistic_fiction = models.BooleanField(default=False, verbose_name="Realistic Fiction")
+
+	has_science_fiction = models.BooleanField(default=False, verbose_name="Science Fiction")
 
 
