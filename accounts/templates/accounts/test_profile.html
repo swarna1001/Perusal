@@ -11,7 +11,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-    
 
     <link rel="stylesheet" type="text/css" href="{% static 'accounts/test_profile_style.css' %}"/>
 
@@ -197,51 +196,54 @@
             </div>  
         </div>
 
-
-        <div class="row justify-content-center my-row">     <!-- ROW 5 GENRES, READ LIST -->
+        
+        <!-- ROW 5 GENRES, READ LIST -->
+        <!-- displayed only if the user has added the corresponding information -->
+        <!-- ADD WHEN READ_LIST IS ADDED -->
+        <div class="row justify-content-center my-row">     
             <div class="col-5 my-col my-col-61">
-                <h3>Genres</h3>
-                <div class="bs-example">
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion text-center" id="accordionExample">
                         <div class="card">
                             <div class="card-header" id="headingOne">
-                <h2>
-                    <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target="#collapseOne">Genres</button>                                  
-                </h2>
-            </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                    <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <!--<a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a> --></p>
+                                <h2>
+                                    <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target="#collapseOne">Genres</button>                                  
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div>
+
+                                        {% if existing_genres %}
+                                            <h2>Already selected GENRES:</h2>
+                                            {{ existing_genres }}
+
+                                        {% else %}
+                                            <h3> Genres not specified </h3>
+
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
                 </div>
             </div>
-        </div>    
-    </div>
-</div>
 
-
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
 
             <div class="col-5 my-col my-col-62">
-                <h3>Read List</h3> 
+                <div class="accordion text-center" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2>
+                                <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target="#collapseTwo">Read List</button>                                  
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <!--<a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a> --></p>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
             </div>  
         </div>
 

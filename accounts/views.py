@@ -442,12 +442,17 @@ def profile_view(request, slug):
 			from_user=p.user).filter(to_user=request.user)) == 1:
 				button_status = 'friend_request_received'
 
+	# get genres to be displayed in the view
+	current_user = p.user
+	existing_genres = current_user.profile.genres
+	
 	context = {
 		'u': u,
 		'button_status': button_status,
 		'friends_list': friends,
 		'sent_friend_requests': sent_friend_requests,
 		'rec_friend_requests': rec_friend_requests,
+		'existing_genres' : existing_genres,
 		#'post_count': user_posts.count
 	}
 

@@ -4,12 +4,13 @@
     {% load static %}
     <meta charset="utf-8">
     <title> {{ u.username }} </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8">        
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 
     <link rel="stylesheet" type="text/css" href="{% static 'accounts/profile_style.css' %}"/> 
 
@@ -206,8 +207,8 @@
                     </div>
                 </div>
 
-                <!-- ROW 4 BIO--> 
 
+                <!-- ROW 4 BIO--> 
                 <div class="row justify-content-center my-row">       
                     <div class="col-10 my-col my-col-41">
                         <div class="user-bio">
@@ -216,16 +217,58 @@
                     </div>  
                 </div>
 
+
                 <!-- ROW 5 GENRES, READ LIST -->
-                <div class="row justify-content-around my-row">       
-                    <div class="col-2 my-col my-col-61">
-                        <h3>Genres</h3> 
+                <!-- displayed only if the user has added the corresponding information -->
+                <!-- ADD WHEN READ_LIST IS ADDED -->
+                <div class="row justify-content-center my-row">     
+                    <div class="col-5 my-col my-col-61">
+                        <div class="accordion text-center" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2>
+                                        <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target="#collapseOne">Genres
+                                        </button>                                  
+                                    </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div>
+
+                                            {% if existing_genres %}
+                                                <h2>Already selected GENRES:</h2>
+                                                {{ existing_genres }}
+
+                                            {% else %}
+                                                <h3> Genres not specified </h3>
+
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
                     </div>
 
-                    <div class="col-2 my-col my-col-62">
-                        <h3>Read List</h3> 
+
+                    <div class="col-5 my-col my-col-62">
+                        <div class="accordion text-center" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                <h2>
+                                    <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target="#collapseTwo">Read List</button>                                  
+                                </h2>
+                            </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p>User's read list</p>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
                     </div>  
                 </div>
+
 
 
                 <div class="row justify-content-center my-row">       <!-- ROW 6  POSTS -->
