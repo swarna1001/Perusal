@@ -133,7 +133,7 @@
     <!-- ############## till here COMMON TEMPLATE FOR ALL THE PAGES  ################# -->
 
                 <div class="row justify-content-center my-row row-3">
-                    <div class="col-9 my-col my-col-31 text-center">
+                    <div class="col-12 my-col my-col-31 text-center">
 
                         {% if friends %}
                             <div class="card card-signin my-5">
@@ -147,21 +147,14 @@
                                     {% endfor %}
                                 </div>
                             </div>
+                        {% else %}
+                            <h3> Connect to people with similar reading taste, Just send
+                            a Request! </h3>
                         {% endif %}
                     </div>
 
                     <div class="col-3">
-                        <div class="card card-signin my-5">
-                            <a href="{{ request.user.profile.get_absolute_url }}"><img class="card-img-top" src="{{ request.user.profile.image.url }}" alt="" /></a>
-
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{ request.user }}</h5>
-        
-                                <h6 class="text-center"> {{ request.user.profile.friends.count }}
-                                <p class="text-muted">Friends</p> </h6>
-                                <p class="card-text text-center">{{ request.user.profile.bio }}</p>
-                            </div>
-                        </div>
+                        
                     </div>
         
                 </div>
