@@ -16,6 +16,7 @@
     </script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'accounts/base_style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/friends_style.css' %}"/>
 
     <style>
         .my-container{
@@ -132,8 +133,65 @@
 
     <!-- ############## till here COMMON TEMPLATE FOR ALL THE PAGES  ################# -->
 
-                <div class="row justify-content-center my-row row-3">
+            <!-- RECENT CHANGES -->
+
+            <div class="row justify-content-center my-row row-4">
+                <div class="col-12 my-col my-col-41">
+                        
+                    <div class="tabs">
+
+                        <input type="radio" name="tabs" id="tabone" checked="checked">
+                            <label for="tabone" id="tab-heading-1">Tab One</label>
+                            <div class="tab">
+                                <h1>Friends</h1>
+                                
+                                <div>
+
+                                    {% if friends %}
+                                        <div class="card side-card">
+                                                {% for user_p in friends %}
+                                                    <a href="{{ user_p.get_absolute_url }}"> <img src="{{ user_p.image.url }}" class="rounded mr-2" width="40" height="40" alt=""/></a>
+                                                    <a class="text-dark" href="{{ user_p.get_absolute_url }}">
+                                                    <b>{{ user_p }}</b></a>
+          
+                                                    <br /><br />
+                                                {% endfor %}
+                                        </div>
+                                    {% else %}
+
+                                        <h3> Connect to people with similar reading taste, Just send a Request! </h3>
+                                    {% endif %}
+                                </div>
+                                
+
+
+
+
+    
+                            </div>
+  
+                        <input type="radio" name="tabs" id="tabtwo">
+                            <label for="tabtwo" id="tab-heading-2">Tab Two</label>
+                            <div class="tab">
+                                <h1>Tab Two Content</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            </div>
+  
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+                <!--<div class="row justify-content-center my-row row-3">
                     <div class="col-12 my-col my-col-31 text-center">
+                        <div>
 
                         {% if friends %}
                             <div class="card card-signin my-5">
@@ -152,12 +210,8 @@
                             a Request! </h3>
                         {% endif %}
                     </div>
-
-                    <div class="col-3">
-                        
-                    </div>
-        
-                </div>
+                    </div>        
+                </div> -->
 
                     
 
