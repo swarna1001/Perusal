@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-from . models import Profile
+from . models import Profile, Genre
 
 
 class RegisterForm(UserCreationForm):
@@ -30,14 +30,18 @@ class ProfileUpdateForm(forms.ModelForm):
 		fields = ['image', "city", "state", "bio"]
 
 
-"""
-class Genres_choices(forms.ModelForm):
-	adds_classic = forms.BooleanField()
+"""class GenresChoiceForm(forms.Form):
+	has_autobiography = forms.BooleanField()
+	has_biography = forms.BooleanField()
+	has_drama = forms.BooleanField()
+	has_fairytale = forms.BooleanField()
+	
 	
 
 	class Meta:
-		model = Profile
-		fields = ['adds_classic'] """
+		model = Genre
+		fields = ['has_autobiography', 'has_biography', 'has_drama', 'has_fairytale', 
+		'has_fantasy', 'has_folktale'] """
 
 
 

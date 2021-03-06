@@ -30,7 +30,7 @@
 			});
 		});
 		
-	</script>
+	</script> 
 
 	<style>
         .my-container{
@@ -146,6 +146,46 @@
 
     <!-- ############## till here COMMON TEMPLATE FOR ALL THE PAGES  ################# -->
 
+    <div class="row justify-content-center my-row">       
+        <div class="col-10 my-col my-col-41">
+            <div class="user-bio">
+                <h4>hdhggggggggggg</h4>
+            </div> 
+        </div>  
+    </div>
+
+
+    <div class="row justify-content-center my-row row-3">    
+        <div class="col-6 my-col my-col-31 text-center">
+            <div>
+
+            	<center>
+		<h1>Add genres</h1>
+		<hr/>
+		<form method="POST">
+			{% csrf_token %}
+
+			Genres:
+			<input type="checkbox" value="genre1"  class="chckvalues"> genre1
+			<input type="checkbox" value="genre2"  class="chckvalues"> genre2
+			<input type="checkbox" value="genre3"  class="chckvalues"> genre3
+			<input type="checkbox" value="genre4"  class="chckvalues"> genre4
+			<input type="checkbox" value="genre5"  class="chckvalues"> genre5
+
+		<hr/>
+		<input type="text" name="genres" id="txtvalues">
+		<input id="but1" type="submit" value="Insert record" onclick="return alert('successfully inserted!')">
+		
+		</form>
+
+	</center>
+    			
+    		</div>
+                             
+        </div>  
+    </div>
+    
+
 
 
 
@@ -181,26 +221,6 @@
 
 
 
-	<center>
-		<h1>Add genres</h1>
-		<hr/>
-		<form method="POST">
-			{% csrf_token %}
-
-			Genres:
-			<input type="checkbox" value="genre1"  class="chckvalues"> genre1
-			<input type="checkbox" value="genre2"  class="chckvalues"> genre2
-			<input type="checkbox" value="genre3"  class="chckvalues"> genre3
-			<input type="checkbox" value="genre4"  class="chckvalues"> genre4
-			<input type="checkbox" value="genre5"  class="chckvalues"> genre5
-
-		<hr/>
-		<input type="text" name="genres" id="txtvalues">
-		<input id="but1" type="submit" value="Insert record" onclick="return alert('successfully inserted!')">
-		
-		</form>
-
-	</center>
  
 </body>
 </html>

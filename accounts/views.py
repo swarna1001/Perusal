@@ -132,7 +132,28 @@ def homepage_view(request):
 	return render(request, 'accounts/homepage.html', context)
 
 
+# new genre view
 """@login_required
+def genres_view(request):
+	context = {}
+	form = GenresChoiceForm()
+	context['form'] = form
+
+	if request.GET:
+		temp1 = request.GET['has_autobiography']
+		temp2 = request.GET['has_biography']
+		temp3 = request.GET['has_drama']
+		temp4 = request.GET['has_fairytale']
+
+		print(temp1)
+		print(temp2)
+		print(temp3)
+		print(temp4)
+
+	return render(request, 'accounts/genres.html', context) """
+
+
+@login_required
 def genres_view(request):
 	current_user = request.user
 	if request.method == "POST":
@@ -140,11 +161,12 @@ def genres_view(request):
 			savedata = current_user.profile
 			savedata.genres = request.POST.get('genres')
 			savedata.save()
+			print("GENRES ARE:", savedata)
 
 			return redirect('accounts:homepage')
 	else:
 	
-		return render(request, 'accounts/genres.html')"""
+		return render(request, 'accounts/genres.html')
 
 
 

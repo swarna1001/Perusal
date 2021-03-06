@@ -20,6 +20,9 @@ class Profile(models.Model):
 	slug = AutoSlugField(populate_from='user')
 	bio = models.CharField(max_length=255, blank=True)
 	friends = models.ManyToManyField("Profile", blank=True)
+
+	genres = models.CharField(max_length=100, blank=True)
+
 	
 
 	def __str__(self):
@@ -88,5 +91,9 @@ class Genre(models.Model):
 	has_realistic_fiction = models.BooleanField(default=False, verbose_name="Realistic Fiction")
 
 	has_science_fiction = models.BooleanField(default=False, verbose_name="Science Fiction")
+
+
+	def __str__(self):
+		return " {}Genres ".format(self.user.username)
 
 
