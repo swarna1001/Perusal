@@ -89,12 +89,11 @@ def homepage_view(request):
 
 		friends += friend
 
-	print("USERS : ", users)
-
-	print("1.  ", friends)
+	#print("USERS : ", users)
+	#print("1.  ", friends)
 
 	my_friends = request.user.profile.friends.all()
-	print("2.  ", my_friends)
+	#print("2.  ", my_friends)
 
 	for i in my_friends:
 		if i in friends:
@@ -104,7 +103,7 @@ def homepage_view(request):
 		friends.remove(request.user.profile)
 
 	random_list = random.sample(list(users), min(len(list(users)), 10))
-	print("3.  ", random_list)
+	#print("3.  ", random_list)
 
 	for r in random_list:
 		if r in friends:
@@ -112,12 +111,12 @@ def homepage_view(request):
 
 	friends += random_list
 
-	print("4.  ", friends)
+	#print("4.  ", friends)
 	for i in my_friends:
 		if i in friends:
 			friends.remove(i)
 
-	print("5.  ", friends)		
+	#print("5.  ", friends)		
 	for sent in sent_friend_requests:
 		sent_to.append(sent.to_user)
 
@@ -126,9 +125,7 @@ def homepage_view(request):
 			'sent' : sent_to
 	}
 
-	print("6.  ", friends)
-
-	
+	#print("6.  ", friends)
 	return render(request, 'accounts/homepage.html', context)
 
 
@@ -153,7 +150,7 @@ def genres_view(request):
 	return render(request, 'accounts/genres.html', context) """
 
 
-@login_required
+"""@login_required
 def genres_view(request):
 	current_user = request.user
 	if request.method == "POST":
@@ -161,14 +158,31 @@ def genres_view(request):
 			savedata = current_user.profile
 			savedata.genres = request.POST.get('genres')
 			savedata.save()
-			print("GENRES ARE:", savedata)
+			print("GENRES ARE:", savedata.genres)
+			return redirect('accounts:homepage')
+	else:
+		return render(request, 'accounts/genres.html')"""
+
+
+@login_required
+def genres_view(request):
+	current_user = request.user
+	existing_genres = current_user.profile.genres
+	print("EXISTING GENRES :", existing_genres)
+
+	context = {
+			'existing_genres' : existing_genres,
+	}
+	if request.method == "POST":
+		if request.POST.get('genres'):
+			savedata = current_user.profile
+			savedata.genres = request.POST.get('genres')
+			savedata.save()
 
 			return redirect('accounts:homepage')
 	else:
 	
-		return render(request, 'accounts/genres.html')
-
-
+		return render(request, 'accounts/genres.html', context)
 
 """@login_required
 def homepage_view(request):
@@ -314,19 +328,7 @@ def homepage_view(request):
 
 
 
-"""@login_required
-def genres_view(request):
-	current_user = request.user
-	if request.method == "POST":
-		if request.POST.get('genres'):
-			savedata = current_user.profile
-			savedata.genres = request.POST.get('genres')
-			savedata.save()
 
-			return redirect('accounts:homepage')
-	else:
-	
-		return render(request, 'accounts/genres.html')"""
  
 
 

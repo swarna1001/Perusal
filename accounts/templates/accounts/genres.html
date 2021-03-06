@@ -148,9 +148,18 @@
 
     <div class="row justify-content-center my-row">       
         <div class="col-10 my-col my-col-41">
-            <div class="user-bio">
-                <h4>hdhggggggggggg</h4>
-            </div> 
+         
+            
+
+            <div>
+
+            	{% if existing_genres %}
+            		<h2>Already selected GENRES:</h2>
+            		{{ existing_genres }}
+
+            	{% endif %}
+            </div>
+             
         </div>  
     </div>
 
@@ -166,11 +175,13 @@
 			{% csrf_token %}
 
 			Genres:
-			<input type="checkbox" value="genre1"  class="chckvalues"> genre1
+			<ul>
+			<input type="checkbox" value="genre1"  class="chckvalues" name="auto"> genre1
 			<input type="checkbox" value="genre2"  class="chckvalues"> genre2
 			<input type="checkbox" value="genre3"  class="chckvalues"> genre3
 			<input type="checkbox" value="genre4"  class="chckvalues"> genre4
 			<input type="checkbox" value="genre5"  class="chckvalues"> genre5
+			</ul>
 
 		<hr/>
 		<input type="text" name="genres" id="txtvalues">
