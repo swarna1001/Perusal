@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 
 	<link rel="stylesheet" type="text/css" href="{% static 'accounts/base_style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/genres_style.css' %}"/>
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 
@@ -38,13 +40,13 @@
            /* max-width: 1280px; */
         }
   
-        /*.my-col{
+        .my-col{
             border: 1px solid blue;
         }
         
          .my-row{
             border: 1px solid red;
-         } */
+         } 
 
         </style>
 
@@ -145,11 +147,8 @@
 
     <!-- ############## till here COMMON TEMPLATE FOR ALL THE PAGES  ################# -->
 
-    <div class="row justify-content-center my-row">       
-        <div class="col-10 my-col my-col-41">
-         
-            
-
+    <div class="row justify-content-center my-row row-3">       
+        <div class="col-10 my-col my-col-31">
             <div>
 
             	{% if existing_genres %}
@@ -163,31 +162,63 @@
     </div>
 
 
-    <div class="row justify-content-center my-row row-3">    
-        <div class="col-6 my-col my-col-31 text-center">
-            <div>
+    <div class="row justify-content-center my-row row-4">    
+                <div class="col-3">
+                    <hr/>
+                    <li> <input type="checkbox" value="Autobiography"         class="chckvalues largerCheckbox"> <span class="check-text">Autobiography </span> </li>
+                    <hr/>
+                    <li> <input type="checkbox" value="Biography"             class="chckvalues largerCheckbox"> <span class="check-text"> Biography </span> </li> 
+                    <hr/>
+                    <li> <input type="checkbox" value="Drama"                 class="chckvalues largerCheckbox"> <span class="check-text"> Drama </span> </li>
+                    <hr/>
+                    <li> <input type="checkbox" value="Fairytale"             class="chckvalues largerCheckbox"> <span class="check-text"> Fairytale </span> </li><hr/>
+                    
+                    
+                </div>
 
+
+                <div class="col-3">
+                <hr/>
+                    <li> <input type="checkbox" value="Fantasy"               class="chckvalues largerCheckbox"> <span class="check-text"> Fantasy </span> </li><hr/>
+                    <li> <input type="checkbox" value="Folktale"              class="chckvalues largerCheckbox"> <span class="check-text"> Folktale </span> </li><hr/>
+                    <li> <input type="checkbox" value="Historical Fiction"    class="chckvalues largerCheckbox"> <span class="check-text"> Historical Fiction </span> </li><hr/>
+
+                    <li> <input type="checkbox" value="Horror"                class="chckvalues largerCheckbox"> <span class="check-text"> Horror </span> </li><hr/>
+                    
+                </div>
+
+                <div class="col-3">
+                    <hr/>
+
+                    <li> <input type="checkbox" value="Informational"         class="chckvalues largerCheckbox"> <span class="check-text"> Informational </span> </li><hr/>
+                    <li> <input type="checkbox" value="Myth"                  class="chckvalues largerCheckbox"> <span class="check-text"> Myth </span> </li><hr/>
+                    <li> <input type="checkbox" value="Mystery"               class="chckvalues largerCheckbox"> <span class="check-text"> Mystery </span> </li><hr/>
+                </div>
+
+                <div class="col-3">
+                    <hr/>
+                    <li> <input type="checkbox" value="Poetry"                class="chckvalues largerCheckbox"> <span class="check-text"> Poetry </span> </li><hr/>
+                    <li> <input type="checkbox" value="Realistic Fiction"     class="chckvalues largerCheckbox"> <span class="check-text"> Realistic Fiction </span> </li><hr/>
+                    <li> <input type="checkbox" value="Science Fiction"       class="chckvalues largerCheckbox"> <span class="check-text"> Science Fiction </span> </li><hr/>
+                </div>
+   
+    </div>
+
+
+    <div class="row justify-content-center my-row row-4">    
+        <div class="col-12 my-col my-col-41 text-justify">
+            <div>
             	<center>
 		<h1>Add genres</h1>
 		<hr/>
 		<form method="POST">
 			{% csrf_token %}
 
-			Genres:
-			<ul>
-			<input type="checkbox" value="genre1"  class="chckvalues" name="auto"> genre1
-			<input type="checkbox" value="genre2"  class="chckvalues"> genre2
-			<input type="checkbox" value="genre3"  class="chckvalues"> genre3
-			<input type="checkbox" value="genre4"  class="chckvalues"> genre4
-			<input type="checkbox" value="genre5"  class="chckvalues"> genre5
-			</ul>
-
 		<hr/>
-		<input type="text" name="genres" id="txtvalues">
-		<input id="but1" type="submit" value="Insert record" onclick="return alert('successfully inserted!')">
+		<input type="text" name="genres" id="txtvalues"> 
+		<input id="but1" type="submit" value="Save" onclick="return alert('successfully inserted!')">
 		
 		</form>
-
 	</center>
     			
     		</div>
