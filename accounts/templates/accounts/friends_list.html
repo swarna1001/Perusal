@@ -143,38 +143,29 @@
                         <input type="radio" name="tabs" id="tabone" checked="checked">
                             <label for="tabone" id="tab-heading-1">Tab One</label>
                             <div class="tab">
-                                <h1>Friends</h1>
-                                
-                                <div>
-
-                                    {% if friends %}
-                                        <div class="card side-card">
-                                                {% for user_p in friends %}
-                                                    <a href="{{ user_p.get_absolute_url }}"> <img src="{{ user_p.image.url }}" class="rounded mr-2" width="40" height="40" alt=""/></a>
-                                                    <a class="text-dark" href="{{ user_p.get_absolute_url }}">
-                                                    <b>{{ user_p }}</b></a>
-          
-                                                    <br /><br />
-                                                {% endfor %}
+                                <h1>Friends</h1>                               
+                                <div class="right-sidebar">
+                                    {% if friends %}                                       
+                                        <div class="card-body">
+                                        {% for user_p in friends %}
+                                            <div class="card side-card">
+                                            <a href="{{ user_p.get_absolute_url }}"> <img src="{{ user_p.image.url }}" class="friend-image" width="80" height="80" alt=""/></a>
+                                            <a class="text-dark" href="{{ user_p.get_absolute_url }}">
+                                            <b>{{ user_p }}</b></a>
+                                            </div>
+                                        {% endfor %}
                                         </div>
                                     {% else %}
-
                                         <h3> Connect to people with similar reading taste, Just send a Request! </h3>
-                                    {% endif %}
+                                    {% endif %}   
                                 </div>
-                                
-
-
-
-
-    
                             </div>
   
                         <input type="radio" name="tabs" id="tabtwo">
                             <label for="tabtwo" id="tab-heading-2">Tab Two</label>
                             <div class="tab">
                                 <h1>Tab Two Content</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                             </div>
   
                     </div>
