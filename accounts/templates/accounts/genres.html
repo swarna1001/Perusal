@@ -40,13 +40,13 @@
            /* max-width: 1280px; */
         }
   
-        .my-col{
+        /*.my-col{
             border: 1px solid blue;
         }
         
          .my-row{
             border: 1px solid red;
-         } 
+         }*/ 
 
         </style>
 
@@ -149,11 +149,11 @@
 
     <div class="row justify-content-center my-row row-3">       
         <div class="col-10 my-col my-col-31">
-            <div>
+            <div class="display-existing">
 
             	{% if existing_genres %}
-            		<h2>Already selected GENRES:</h2>
-            		{{ existing_genres }}
+            		<h3>Your preferred genres:</h3>
+            		<h4>{{ existing_genres  }} </h4>
 
             	{% endif %}
             </div>
@@ -206,22 +206,24 @@
 
 
     <div class="row justify-content-center my-row row-4">    
-        <div class="col-12 my-col my-col-41 text-justify">
-            <div>
+        <div class="col-12 my-col my-col-41 ">
+            
             	<center>
-		<h1>Add genres</h1>
-		<hr/>
 		<form method="POST">
 			{% csrf_token %}
 
-		<hr/>
-		<input type="text" name="genres" id="txtvalues"> 
-		<input id="but1" type="submit" value="Save" onclick="return alert('successfully inserted!')">
+		<div class="display-checked">
+            <input type="text" name="genres" id="txtvalues" size="120" readonly> 
+        </div>
+
+        <div class="save-button">
+		    <input id="but1" type="submit" value="Save" onclick="return alert('successfully inserted!')">
+        </div>
 		
 		</form>
 	</center>
     			
-    		</div>
+    		
                              
         </div>  
     </div>
