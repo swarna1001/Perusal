@@ -29,8 +29,11 @@ urlpatterns = [
 	path('accounts/friend-request/delete/<int:id>/', account_views.delete_friend_request, 
 		name='delete_friend_request'),
 
-	#path('accounts/friend/delete/<int:id>/', account_views.delete_friend, 
-	#	name='delete_friend'),
+	#path('accounts/friend/delete/<int:id>/', account_views.delete_friend_visiting_profile, 
+		#name='remove_friend'),
+
+	path('accounts/friend/delete/<int:id>/', account_views.delete_friend_visiting_profile, 
+		name='remove_friend'),
 
 
 ]

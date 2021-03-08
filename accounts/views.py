@@ -562,7 +562,7 @@ def delete_friend_request(request, id):
 	return HttpResponseRedirect('/accounts/homepage/')
 
 
-def delete_friend(request, id):
+def delete_friend_using_friends_list(request, id):
 	user_profile = request.user.profile
 	friend_profile = get_object_or_404(Profile, id = id)
 	user_profile.friends.remove(friend_profile)
@@ -570,6 +570,15 @@ def delete_friend(request, id):
 
 	#return HttpResponseRedirect('/accounts/friend_list')
 	return redirect('accounts:friend_list')
+
+
+def delete_friend_visiting_profile(request, id):
+	user_profile = request.user.profile
+	friend_profile = get_object_or_404(Profile, id = id)
+	user_profile.friends.remove(friend_profile)
+	friend_profile.friends.remove(user_profile)
+
+	return HttpResponseRedirect('/accounts/homepage/')
 
 
 
