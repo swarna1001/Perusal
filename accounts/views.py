@@ -509,6 +509,10 @@ def friend_list(request):
 	return render (request, "accounts/friends_list.html", context)
 
 
+
+
+
+
 @login_required
 def send_friend_request(request, id):
 	user = get_object_or_404 (User, id = id)
@@ -517,6 +521,7 @@ def send_friend_request(request, id):
 						to_user = user )
 
 	return HttpResponseRedirect('/accounts/homepage/')
+
 
 @login_required
 def cancel_friend_request(request, id):
@@ -563,7 +568,8 @@ def delete_friend(request, id):
 	user_profile.friends.remove(friend_profile)
 	friend_profile.friends.remove(user_profile)
 
-	return HttpResponseRedirect('/accounts/{}'.format(friend_profile.slug))
+	#return HttpResponseRedirect('/accounts/friend_list')
+	return redirect('accounts:friend_list')
 
 
 
