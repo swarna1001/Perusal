@@ -11,3 +11,4 @@ class NewCommentForm(forms.ModelForm):
 		model = Comments
 		fields = ['comment']
 		
+

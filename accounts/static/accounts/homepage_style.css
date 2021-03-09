@@ -19,8 +19,9 @@ body{
 }
 
 .title span{
-  color: #4CCEE8;
+  color: #014421;
   font-size: 40px;
+  font-family: "Lucida Handwriting", "Georgia";
 }
 
 .wrapper .sidebar{
@@ -173,7 +174,7 @@ hr.solid{
  /* NEWLY ADDED --from my_profile_style */
 
  .read-label{
-  margin-top: 35px;
+  margin-top: 10px;
  }
 
   .suggest-label{
