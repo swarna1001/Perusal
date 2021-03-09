@@ -81,7 +81,7 @@ def create_post(request):
 			data.user_name = user
 			data.save()
 			messages.success(request, f'Posted Successfully')
-			return redirect('home')
+			return redirect('accounts:homepage')
 
 	else:
 		form = NewPostForm()
@@ -123,8 +123,8 @@ def search_posts(request):
 	object_list = Post.objects.filter(tags__icontains=query)
 	liked = [i for i in object_list if Like.objects.filter(user = request.user, post=i)]
 	context = {
-					'posts': object_list
-					'liked_post': liked
+					'posts': object_list,
+					'liked_post': liked,
 	}
 
 	return render(request, "feed/search_posts.html", context)

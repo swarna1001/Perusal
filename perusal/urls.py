@@ -35,6 +35,8 @@ urlpatterns = [
 	path('accounts/friend/delete/<int:id>/', account_views.delete_friend_visiting_profile, 
 		name='remove_friend'),
 
+	path(r'feed/', include('feed.urls')),
+
 
 ]
 

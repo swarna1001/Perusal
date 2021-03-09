@@ -318,6 +318,7 @@ hr.solid{
   background: #D0F0C0;
   font-weight: bold;
   transition: background ease 0.2s;
+  font-size: 20px;
 }
 .tabs .tab {
   order: 99; // Put the tabs last

@@ -1,11 +1,13 @@
-from django.contrib import admin
-from django.urls import path, include, urls
-from . import views
-from .views import PostUpdateView, PostListView, UserPostListView
+from django.conf.urls import url, include
+from .import views
+from django.urls import path
+
+app_name = 'feed'
 
 urlpatterns = [
-			
 
+			url(r'^post/new/$', views.create_post, name='post-create'),
+			
 
 
 
