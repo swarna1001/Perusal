@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from .forms import NewPostForm, NewCommentForm
 from django.views.generic import ListView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Post, Comments, Like
+from .models import Post, Comment, Like
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 import json
