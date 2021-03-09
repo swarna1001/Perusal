@@ -57,7 +57,7 @@
 
                             <li class="item">
                                 <a href="{% url 'accounts:edit_profile' %}"  class="edit-menu-btn">
-                                <i class="fas fa fa-user"></i><span>Edit Profile</span></a>
+                                <i class="fas fa fa-user"></i><span> Edit Profile</span></a>
                             </li>
                             <center> <hr class="solid"> </center>
 
@@ -141,16 +141,16 @@
                             <label for="tabone" id="tab-heading-1">Top-Reads</label>
                             <div class="tab">
                                 <div class="top-reads">
-                                    <div class="main-card">
+                                    <div class="card side-card">
                                         <p>Read - 1</p>
                                     </div>
-                                    <div class="main-card">
+                                    <div class="card side-card">
                                         <p>Read - 2</p>
                                     </div>
-                                    <div class="main-card">
+                                    <div class="card side-card">
                                         <p>Read - 3</p>
                                     </div>
-                                    <div class="main-card">
+                                    <div class="card side-card">
                                         <p>Read - 4</p>
                                     </div>
                                 </div>
@@ -168,8 +168,7 @@
                                                 <a class="text-dark" href="{{ user_p.get_absolute_url }}"><b> {{ user_p }} </b></a>
                                             </div>
                                         {% endfor %}
-                                    {% endif %}
-                                    <br /><br />  
+                                    {% endif %} 
                                 </div>                                
                             </div>
   
