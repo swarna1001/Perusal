@@ -1,0 +1,370 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body{
+  background: #fff;
+}
+
+.title{
+  color: #fff;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.title span{
+  color: #014421;
+  font-size: 40px;
+  font-family: "Lucida Handwriting", "Georgia";
+}
+
+.wrapper .sidebar{
+  z-index: 1;
+  background: #454140;
+  position: fixed;
+  width: 225px; 
+  height: 100%;
+  overflow-y: auto;
+}
+
+hr.solid{
+  border-top: 1px solid #bbb;
+  width: 200px;
+}
+
+.wrapper .sidebar .sidebar-menu{
+  overflow: hidden;
+}
+
+.wrapper .sidebar .sidebar-menu .profile img{
+  margin: 20px 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.wrapper .sidebar .sidebar-menu .profile p{
+  color: #bbb;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.wrapper .sidebar .sidebar-menu .item{
+  width: 225px;
+  overflow: hidden;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn{
+  display: block;
+  color: #fff;
+  position: relative;
+  padding: 15px 35px;
+  transition: 0.3s;
+  transition-property: color;
+}
+
+.wrapper .sidebar .sidebar-menu .item .last-menu-btn{
+  display: block;
+  color: #fff;
+  position: relative;
+  padding: 70px 35px;
+  transition: 0.3s;
+  transition-property: color;
+  margin-top: 40px; 
+}
+
+.wrapper .sidebar .sidebar-menu .item .edit-menu-btn{
+  display: block;
+  color: #fff;
+  position: relative;
+  padding: 3px 35px;
+  transition: 0.3s;
+  transition-property: color;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
+  color: #d6cbd3;
+}
+
+.wrapper .sidebar .sidebar-menu .item .last-menu-btn:hover{
+  color: #d6cbd3;
+}
+
+.wrapper .sidebar .sidebar-menu .item .edit-menu-btn:hover{
+  color: #d6cbd3;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn i{
+  margin-right: 20px;
+}
+
+.wrapper .sidebar .sidebar-menu .item .last-menu-btn i{
+  margin-right: 20px;
+}
+
+.wrapper .sidebar .sidebar-menu .item .edit-menu-btn i{
+  margin-right: 20px;
+}
+
+
+/* ===========================
+   ====== Search Box ====== 
+   =========================== */
+
+.search
+{
+  border: 2px solid #CF5C3F;
+  overflow: auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.search input[type="text"]
+{
+  border: 0px;
+  width: 67%;
+  padding: 10px 10px;
+}
+
+.search input[type="text"]:focus
+{
+  outline: 0;
+}
+
+.search input[type="submit"]
+{
+  border: 0px;
+  background: none;
+  background-color: #CF5C3F;
+  color: #fff;
+  float: right;
+  padding: 10px;
+  border-radius-top-right: 5px;
+  -moz-border-radius-top-right: 5px;
+  -webkit-border-radius-top-right: 5px;
+  border-radius-bottom-right: 5px;
+  -moz-border-radius-bottom-right: 5px;
+  -webkit-border-radius-bottom-right: 5px;
+        cursor:pointer;
+}
+
+/* ===========================
+   ====== Medua Query for Search Box ====== 
+   =========================== */
+
+@media only screen and (min-width : 150px) and (max-width : 780px)
+{
+  {}
+  .search
+  {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+}
+ /* COMMON CSS FOR ALL THE PAGES */
+
+ /* NEWLY ADDED --from my_profile_style */
+
+ .read-label{
+  margin-top: 10px;
+ }
+
+  .suggest-label{
+  margin-top: 25px;
+ }
+
+ .card{
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+}
+.card {
+...
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 80px;
+}
+
+
+.main-card {
+  display: inline-grid;
+  width: 100px;
+  height: 120px;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  background: white;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.9);
+  text-align: center;
+  font-family: "fantasy", sans-serif;
+}
+
+.main-card:hover {
+  transform: scale(1.02);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+.main-card {
+...
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+
+.side-card {
+  display: inline-grid;
+  width: 110px;
+  height: 150px;
+  border-radius: 18px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 10px;
+  background: white;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0.9);
+  text-align: center;
+  font-family: "fantasy", sans-serif;
+}
+
+.side-card:hover {
+  transform: scale(1.02);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+.side-card {
+...
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+
+
+
+
+.row-2{
+  margin-top: 5px;
+}
+
+
+.logout-link{
+  margin-top: 10px;
+}
+
+
+.profile-image{
+  margin: 20px 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+
+}
+
+.posts-col{
+  margin-top: 40px;
+}
+
+.friends-col{
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+.user-location{
+  margin-top: 10px;
+}
+
+.user-name{
+  margin-top: 20px;
+}
+
+.request-link{
+  margin-top: 60px;
+}
+
+.user-bio{
+  margin-top: 20px;
+}
+
+
+
+/*Tabs*/
+.tabs {
+  display: flex;
+  flex-wrap: wrap; // make sure it wraps
+  /*border-right: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+.tabs label {
+  order: 1; // Put the labels first
+  display: block;
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  background: #D0F0C0;
+  font-weight: bold;
+  transition: background ease 0.2s;
+}
+.tabs .tab {
+  order: 99; // Put the tabs last
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  /*padding: 1rem;*/
+  background: #fff;
+}
+.tabs input[type="radio"] {
+  display: none;
+}
+.tabs input[type="radio"]:checked + label {
+  background: #fff;
+}
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}
+
+@media (max-width: 45em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+    color: #fff;
+  }
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+
+  }
+}
+
+/* NEW CHANGES */
+
+.tabs{
+  margin-top: 20px;
+  /*box-shadow: 1px 1px 3px rgba(0,0,0,0.9);*/
+}
+
+#tab-heading-2"{
+  color: #fff;
+
+}
+
+
+
+
+
+

@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
 
-    <title> {{ user.username }}</title>
+    <title> {{ user.username }}_homepage</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     
@@ -15,13 +15,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8">      
     </script>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'accounts/base_style.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'accounts/friends_style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/test_homepage_style.css' %}"/>
 
     <style>
         .my-container{
             /*margin-left: 230px;*/
-            border: 1px solid green; 
+            /*border: 1px solid green; */
            /* max-width: 1280px; */
         }
   
@@ -31,7 +30,7 @@
         
          .my-row{
             border: 1px solid red;
-         } */
+         }*/
 
         </style>
 
@@ -61,6 +60,7 @@
                                 <i class="fas fa fa-user"></i><span>Edit Profile</span></a>
                             </li>
                             <center> <hr class="solid"> </center>
+
 
                             <li class="item">
                                 <a href="{% url 'accounts:homepage' %}" class="menu-btn">
@@ -99,7 +99,7 @@
                 </div> <!-- sidebar end -->
 
             </div>  <!-- wrapper end -->
-            </div> <!-- sidebar column end -->
+            </div>
 
             <div class="col-md-10 my-col top-col my-col-12 "> <!-- COL 2 -->
 
@@ -133,78 +133,59 @@
 
     <!-- ############## till here COMMON TEMPLATE FOR ALL THE PAGES  ################# -->
 
-            <!-- RECENT CHANGES -->
-
-            <div class="row justify-content-center my-row row-4">
-                <div class="col-12 my-col my-col-41 text-right">
-                        
-                    <div class="tabs">
-
-                        <input type="radio" name="tabs" id="tabone" checked="checked">
-                            <label for="tabone" id="tab-heading-1">Friends</label>
+                <!-- ROW 3  READS AND SUGGESTIONS-->
+                <div class="row my-row top-row">
+                    <div class="col-12 my-col my-col-31">
+                        <div class="tabs">
+                            <input type="radio" name="tabs" id="tabone" checked="checked">
+                            <label for="tabone" id="tab-heading-1">Top-Reads</label>
                             <div class="tab">
-                                <div class="right-sidebar">
-                                    {% if friends %}                                       
-                                        <div class="card-body">
-                                        {% for user_p in friends %}
+                                <div class="top-reads">
+                                    <div class="main-card">
+                                        <p>Read - 1</p>
+                                    </div>
+                                    <div class="main-card">
+                                        <p>Read - 2</p>
+                                    </div>
+                                    <div class="main-card">
+                                        <p>Read - 3</p>
+                                    </div>
+                                    <div class="main-card">
+                                        <p>Read - 4</p>
+                                    </div>
+                                </div>
+                            </div>
+  
+                            <input type="radio" name="tabs" id="tabtwo">
+                            <label for="tabtwo" id="tab-heading-2">Suggested</label>
+                            <div class="tab">
+                                <div class="suggested">                                    
+                                    {% if users %} 
+                                        {% for user_p in users %}
                                             <div class="card side-card">
-                                            <a href="{{ user_p.get_absolute_url }}"> <img src="{{ user_p.image.url }}" class="friend-image" width="80" height="80" alt=""/></a>
-                                            <a class="text-dark" href="{{ user_p.get_absolute_url }}">
-                                            <b>{{ user_p }}</b></a>
-                                            <small> <a class="btn btn-danger" href="friend/delete/{{ user_p.id }}"> UnFriend </a>
-                                            </small>
+                                                <a href="{{ user_p.get_absolute_url }}"><img
+                                                src="{{ user_p.image.url }}" class="rounded mr-2" width="80" height="80" alt=""/></a>
+                                                <a class="text-dark" href="{{ user_p.get_absolute_url }}"><b> {{ user_p }} </b></a>
                                             </div>
                                         {% endfor %}
-                                        </div>
-                                    {% else %}
-                                        <h3> Connect to people with similar reading taste, Just send a Request! </h3>
-                                    {% endif %}   
-                                </div>
+                                    {% endif %}
+                                    <br /><br />  
+                                </div>                                
                             </div>
   
-                        <input type="radio" name="tabs" id="tabtwo">
-                            <label for="tabtwo" id="tab-heading-2">Requests</label>
-                            <div class="tab">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p>
-                            </div>
-  
-                    </div>
+                        </div>
+ 
+                    </div>              
+                </div> <!-- READS AND SUGGESTIONS ROW END -->
+
+
+                <!-- ROW 4   CONTENT ROW  -->
+                <div class="row my-row row-4">    
+                    <div class="col-12 my-col my-col-41 ">
+                        <hr/>
+                        <h4>POSTS</h4>   
+                    </div>  
                 </div>
-            </div>
-
-
-
-
-
-
-
-
-
-                <!--<div class="row justify-content-center my-row row-3">
-                    <div class="col-12 my-col my-col-31 text-center">
-                        <div>
-
-                        {% if friends %}
-                            <div class="card card-signin my-5">
-                                <div class="card-body">
-                                    {% for user_p in friends %}
-                                        <a href="{{ user_p.get_absolute_url }}"> <img src="{{ user_p.image.url }}" class="rounded mr-2" width="40" height="40" alt=""/></a>
-                                        <a class="text-dark" href="{{ user_p.get_absolute_url }}">
-                                        <b>{{ user_p }}</b></a>
-          
-                                        <br /><br />
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        {% else %}
-                            <h3> Connect to people with similar reading taste, Just send
-                            a Request! </h3>
-                        {% endif %}
-                    </div>
-                    </div>        
-                </div> -->
-
-                    
 
 
 
@@ -219,9 +200,24 @@
 
 
 
-          </div> <!-- CONTENT COLUMN END -->
+
+
+
+
+
+
         </div> <!-- ROW END -->
     </div>  <!-- CONTAINER END -->
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

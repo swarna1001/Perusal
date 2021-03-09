@@ -1,6 +1,4 @@
-/**
- * Tabs
- */
+/*Tabs*/
 .tabs {
   display: flex;
   flex-wrap: wrap; // make sure it wraps

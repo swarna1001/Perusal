@@ -126,7 +126,7 @@ def homepage_view(request):
 	}
 
 	#print("6.  ", friends)
-	return render(request, 'accounts/homepage.html', context)
+	return render(request, 'accounts/test_homepage.html', context)
 
 
 # new genre view
