@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class Post(models.Model):
-	text_post = models.TextField(help_text = "Add a post")
+	text_post = models.TextField(blank = True)
 	image_post = models.ImageField(blank=True, upload_to = 'post_images')
 	date_posted = models.DateTimeField(default=timezone.now)
 	user_name = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -23,7 +23,7 @@ class Post(models.Model):
 class Comment(models.Model):
 	post = models.ForeignKey(Post, related_name='details', on_delete=models.CASCADE)
 	username = models.ForeignKey(User, related_name='details', on_delete=models.CASCADE)
-	comment = models.TextField(help_text = "Add a comment")
+	comment = models.TextField()
 	comment_date = models.DateTimeField(default=timezone.now)
 
 
