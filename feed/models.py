@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class Post(models.Model):
-	text_post = models.TextField(blank = True)
+	text_post = models.TextField()
 	image_post = models.ImageField(blank=True, upload_to = 'post_images')
 	date_posted = models.DateTimeField(default=timezone.now)
 	user_name = models.ForeignKey(User, on_delete=models.CASCADE)

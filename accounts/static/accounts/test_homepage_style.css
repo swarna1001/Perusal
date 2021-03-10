@@ -24,6 +24,10 @@ body{
   font-family: "Lucida Handwriting", "Georgia";
 }
 
+.top-item{
+  margin-top: 25px;
+}
+
 .wrapper .sidebar{
   z-index: 1;
   background: #454140;
@@ -258,9 +262,7 @@ hr.solid{
 
 
 
-.row-2{
-  margin-top: 5px;
-}
+
 
 
 .logout-link{
@@ -363,6 +365,18 @@ hr.solid{
   color: #fff;
 
 }
+
+
+
+hr {
+ /*! margin-top:1rem; */
+ margin-bottom:1rem;
+ border:0;
+ border-top:1px solid rgba(0,0,0,.1)
+}
+
+
+
 
 
 
