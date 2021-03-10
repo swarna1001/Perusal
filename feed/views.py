@@ -13,6 +13,8 @@ from django.views.decorators.http import require_POST
 import json
 
 
+
+
 class PostListView(ListView):
 	model = Post
 	template_name = 'feed/home.html'

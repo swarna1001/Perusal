@@ -11,8 +11,11 @@ urlpatterns = [
 			#url(r'^post/<int:pk>/$', views.post_detail, name='post-detail'),
 			path('post/detail', views.post_detail, name='post-detail'),
 
-			#url(r'^user_posts/$', UserPostListView.as_view(), name='user-posts'),
+			#url(r'^user_posts/<str:username>/$', UserPostListView.as_view(), name='user-posts'),
 			url(r'^postlist/$', PostListView.as_view(), name='post-home'),
+			#path('posts/<slug>/', UserPostListView.as_view(), name='user-posts'),
+			path('user_posts/<str:username>', UserPostListView.as_view(), name='user-posts'),
+
 
 			
 
