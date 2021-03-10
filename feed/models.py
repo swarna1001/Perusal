@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils import timezone
+from PIL import Image
 
 
 class Post(models.Model):
@@ -19,6 +20,25 @@ class Post(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('post-detail', kwargs={'pk': self.pk})
+
+
+	# for image resize and save the updated profile in the database
+
+	def save(self):
+		super.save()
+
+		img = Image.open(self.image.path)
+
+		if img.height > 600 or img.width > 600:
+			output_size = (600, 600)
+			img.thumbnail(output_size)
+			img.save(self.image.path)
+
+
+
+
+
+
 
 
 class Comment(models.Model):
