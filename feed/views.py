@@ -17,7 +17,7 @@ import json
 
 class PostListView(ListView):
 	model = Post
-	template_name = 'feed/home.html'
+	template_name = 'accounts/test_homepage.html'
 	context_object_name = 'posts'
 	ordering = ['-date_posted']
 	paginate_by = 10

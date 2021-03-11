@@ -87,13 +87,13 @@
                             </li>
 
                             <li class="item">
-                                <a href="{% url 'feed:post-home' %}" class="menu-btn">
+                                <a href="{% url 'feed:user-posts' user.username %}" class="menu-btn">
                                 <i class="fas fa-newspaper"></i><span>Posts</span></a>
                             </li>
 
                             <div>
                                 <li class="item" id="settings">
-                                    <a href="{% url 'feed:user-posts' user.username %}" class="last-menu-btn">
+                                    <a href="{% url 'feed:post-home' %}" class="last-menu-btn">
                                     <i class="fas fa-cog"></i><span>Settings</span> </a>
                                 </li>
                             </div>
@@ -206,6 +206,38 @@
                     <div class="col-12 my-col my-col-41 ">
                         <hr/>
                         <h4>POSTS</h4> 
+
+                        {% for post in posts %}
+                            <div class="card card-signin my-5">
+                                <div class="card-body">
+                                    <a href="{{ post.user_name.profile.get_absolute_url }}"><img
+                                    src="{{ post.user_name.profile.image.url }}"
+                                    class="rounded-circle"
+                                            width="30" height="30" alt=""/></a>
+                                    <a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"
+                                    ><b>{{ post.user_name }}</b></a>
+                                    <br /><small class="text-muted"
+                                    >Posted on {{ post.date_posted }}</small>
+                                    <br /><br />
+                                    <p class="card-text text-dark">{{ post.text_post }}</p>
+
+                                    {% if post.post_image %}
+                                        <br />
+                                        <img class="card-img-top" src="{{ post.post_image.url }}" width="400" height="500" />
+                                        <img src="{{ post.url }}" alt="">
+
+                                    {% endif %}
+
+                                    </div>
+                                        {% if post.tags %}
+                                            <br />
+                                            <p class="text-danger ml-3">
+                                            <b>Tags: <i>{{ post.tags }}</i></b>
+                                            </p>
+                                        {% endif %}
+                                
+                            </div>
+                        {% endfor %}
 
                         
 

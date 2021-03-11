@@ -24,16 +24,15 @@ class Post(models.Model):
 
 	# for image resize and save the updated profile in the database
 
-	def save(self):
-		super.save()
+	def save(self, *args, **kwargs):
+		super().save(*args, **kwargs)
 
-		img = Image.open(self.image.path)
+		img = Image.open(self.post_image.path)
 
 		if img.height > 600 or img.width > 600:
 			output_size = (600, 600)
 			img.thumbnail(output_size)
-			img.save(self.image.path)
-
+			img.save(self.post_image.path)
 
 
 
