@@ -71,7 +71,80 @@ def logout_view(request):
 
 
 
+# CHANGED ON 11/03
 @login_required
+def homepage_view(request):
+
+	# Suggest Users is a MESS
+
+	users = Profile.objects.exclude(user = request.user)
+	sent_friend_requests = FriendRequest.objects.filter(from_user = request.user)
+	sent_to = []
+	friends = []
+	for user in users:
+		friend = user.friends.all()	
+		for f in friend:
+			if f in friends:
+				friend = friend.exclude(user = f.user)
+		friends += friend
+	my_friends = request.user.profile.friends.all()
+	for i in my_friends:
+		if i in friends:
+			friends.remove(i)
+	if request.user.profile in friends:
+		friends.remove(request.user.profile)
+	random_list = random.sample(list(users), min(len(list(users)), 10))
+	for r in random_list:
+		if r in friends:
+			random_list.remove(r)
+	friends += random_list
+	for i in my_friends:
+		if i in friends:
+			friends.remove(i)		
+	for sent in sent_friend_requests:
+		sent_to.append(sent.to_user)
+
+
+	# USER'S POST
+
+	posts = Post.objects.all().order_by('date_posted')
+	user_friends = request.user.profile.friends.all()
+	print("FRIENDS :", user_friends)
+
+	display_post = []
+
+	for f in user_friends:
+		temp = f.user
+		for post in posts:
+			temp2 = post.user_name
+			if (temp == temp2):
+				required_post = Post.objects.filter(user_name=temp2)
+
+				print("POST BY USERS : ", temp2)
+
+				display_post += [temp2]
+
+	print("111111111111111111111", display_post)
+	print("222222222222222222", friends)
+
+
+
+
+
+	context = {
+			'users' : friends,
+			'sent' : sent_to,
+			'posts' : display_post
+
+	}
+	return render(request, 'accounts/test_homepage.html', context)
+
+
+
+
+###### BEFORE 11/03
+
+"""@login_required
 def homepage_view(request):
 
 	# Suggest Users is a MESS
@@ -126,7 +199,7 @@ def homepage_view(request):
 	}
 
 	#print("6.  ", friends)
-	return render(request, 'accounts/test_homepage.html', context)
+	return render(request, 'accounts/test_homepage.html', context)"""
 
 
 # new genre view

@@ -62,6 +62,12 @@
                             <center> <hr class="solid"> </center>
 
                             <li class="item">
+                                <a href="{% url 'accounts:homepage' %}" class="menu-btn">
+                                <i class="fas fa fa-home"></i><span>Home</span>
+                                </a>
+                            </li>
+
+                            <li class="item">
                                 <a href="{% url 'accounts:genres' %}"  class="menu-btn">
                                 <i class="fa fa-sticky-note"></i><span>Genres</span></a>
                             </li>
@@ -78,13 +84,13 @@
                             </li>
 
                             <li class="item">
-                                <a href="#posts" class="menu-btn">
+                                <a href="{% url 'feed:user-posts' user.username %}" class="menu-btn">
                                 <i class="fas fa-newspaper"></i><span>Posts</span></a>
                             </li>
 
                             <div>
                                 <li class="item" id="settings">
-                                    <a href="#settings" class="last-menu-btn">
+                                    <a href="{% url 'feed:post-home' %}" class="last-menu-btn">
                                     <i class="fas fa-cog"></i><span>Settings</span> </a>
                                 </li>
                             </div>
@@ -146,6 +152,13 @@
                                     {{ post.date_posted }}</small>
                                     <br /><br />
                                     <p class="card-text text-dark">{{ post.text_post }}</p>
+
+                                    {% if post.post_image %}
+                                        <br />
+                                        <img class="card-img-top" src="{{ post.post_image.url }}" width="400" height="500" />
+                                        <img src="{{ post.url }}" alt="">
+
+                                    {% endif %}
                                     </div>
                                         
                                         {% if post.tags %}
