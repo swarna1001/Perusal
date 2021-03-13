@@ -19,7 +19,7 @@ import random
 
 User = get_user_model()
 
-# Create your views here.
+# Generic view
 
 def signup_view(request):
 	if request.method == "POST":
@@ -107,12 +107,10 @@ def homepage_view(request):
 
 	# USER'S POST
 
-	posts = Post.objects.all().order_by('date_posted')
+	"""posts = Post.objects.all().order_by('date_posted')
 	user_friends = request.user.profile.friends.all()
 	print("FRIENDS :", user_friends)
-
 	display_post = []
-
 	for f in user_friends:
 		temp = f.user
 		for post in posts:
@@ -122,19 +120,35 @@ def homepage_view(request):
 
 				print("POST BY USERS : ", temp2)
 
-				display_post += [temp2]
+				display_post += [temp2]"""
+	
+	display_post = []
+	user_friends = request.user.profile.friends.all()
+	for f in user_friends:
+		temp = f.user
+		posts = Post.objects.filter(user_name=f.user)
+
+		print("POSTS BY :", posts)
+		
+
+
 
 	print("111111111111111111111", display_post)
 	print("222222222222222222", friends)
 
 
+	all_of = Post.objects.all()
+	print("66666666666666666666", all_of)
 
-
+	print(type(posts))
+	print(type(display_post))
+	print(type(friends))
+	print(type(users))
 
 	context = {
 			'users' : friends,
 			'sent' : sent_to,
-			'posts' : display_post
+			'posts' : posts
 
 	}
 	return render(request, 'accounts/test_homepage.html', context)

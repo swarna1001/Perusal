@@ -16,15 +16,10 @@ body{
 
 
 .login-form{
-  width:350px;
   padding:40px 30px;
   background:#e6e6fa;
   border-radius: 15px;
-  margin:auto;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 12%;
+  
   
 }
 
@@ -38,11 +33,12 @@ body{
   margin-bottom: 10px;
 }
 
-p{
+/*p{
 	text-align: center;
 }
 
 .form-group{
   position: relative;
   margin-bottom: 15px;
-}
+}*/
+

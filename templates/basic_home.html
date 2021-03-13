@@ -5,46 +5,91 @@
     {% load static %}
     <meta charset="UTF-8">
 	<title></title>
-    <script src="https://kit.fontawesome.com/a076d05399.js"> </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 
 	<link rel="stylesheet" type="text/css" href="{% static 'accounts/basic_home_style.css' %}"/> 
+
+    <style>
+        .my-container{
+            /*margin-left: 230px;*/
+            /*border: 1px solid green; */
+           /* max-width: 1280px; */
+        }
+
+         
+        /*.top-row{
+            margin-top: 40px;
+            }   
+
+        .my-col{
+            border: 1px solid blue;
+        }
+        
+         .my-row{
+            border: 1px solid red;
+         } */
+
+        </style> 
 
 </head>
 <body>
     {% csrf_token %}
 
+    <div class="container-fluid my-container">
+        
+        <div class="row my-row justify-content-center">  
 
-
-    <h1 class="headertest">
-        Perusal 
-    </h1>
-
-    <h3 class="headertestdata">Perusal is a social networking platform designed specially for bibliophiles!</h3>
-
-    <h3 class="headertestdata"> Sign up to discover a whole new world.</h3>
-    <h3 class="headertestdata"> If already registered, Log In.</h3>
-
-    
-
-
-    <a href="{% url 'accounts:login' %}"  class="btn btn-success btn-lg btn-lg"> Sign In</a> 
-
-    <a href="{% url 'accounts:signup' %}" class="btn btn-primary btn-lg btn-lg">New Account</a>
-
-	<!--wrapper start-->
-    <div class="wrapper">
-
-        <!--header menu start-->
-        <div class="header">
-            <div class="header-menu">
-                <ul>
-                        <!-- <li class="right-item-1"><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
-                        <li class="right-item-2"><a href="{% url 'accounts:login' %}">Sign In</a></li> -->
-                    </ul>
-                </div>
+            <div class="col-md-6 my-col top-col my-col-11">
+                <h1 class="headertest">
+                    Perusal 
+                </h1>
             </div>
+
+        </div>
+
+
+        <div class="row my-row justify-content-center">
+            <div class="col-md-12 my-col my-col-21">
+                <h3 class="headertestdata">Perusal is a social networking platform designed specially for bibliophiles!</h3>
+            </div>
+        </div>
+
+
+        <div class="row my-row justify-content-center">
+            <div class="col-md-12 my-col my-col-31">
+                <h3 class="headertestdata"> Sign up to discover a whole new world.</h3>
+          </div>
+        </div>
+
+
+        <div class="row my-row justify-content-center">
+            <div class="col-md-12 my-col my-col-41">
+                <h3 class="headertestdata"> If already registered, Sign In.</h3>
+
+            </div>
+        </div>
+
+
+        <div class="row my-row my-row-5 justify-content-center">
+            <div class="col-md-3 my-col my-col-51 text-center">
+                <a href="{% url 'accounts:login' %}"  class="btn btn-success btn-lg btn-lg"> &nbsp&nbsp&nbspSign &nbspIn&nbsp&nbsp&nbsp</a> 
+            </div>
+
+            <div class="col-md-3 my-col my-col-52 text-center">
+                <a href="{% url 'accounts:signup' %}" class="btn btn-primary btn-lg btn-lg">New Account</a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+	
 
 <!--header menu end-->
        
@@ -81,3 +126,4 @@
 
 </body>
 </html>
+

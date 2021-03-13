@@ -23,6 +23,7 @@ class PostListView(ListView):
 	ordering = ['-date_posted']
 	paginate_by = 10
 
+
 	def get_context_data(self, **kwargs):
 		context = super(PostListView, self).get_context_data(**kwargs)
 		if self.request.user.is_authenticated:
@@ -30,7 +31,11 @@ class PostListView(ListView):
 			if Like.objects.filter(user = self.request.user, post=i)]
 			context['liked_post'] = liked
 
+
 		return context
+
+
+
 
 
 
