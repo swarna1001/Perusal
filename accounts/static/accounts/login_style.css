@@ -1,26 +1,24 @@
-
 *{
   margin: 0;
-  padding: 0;
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
   
 }
 
+
+
+
 body{
   background: #f0fff0;
+  background: url(images/per_back5.jpg) no-repeat; 
+  background-size: cover;
 }
 
-
-
-
 .login-form{
-  padding:40px 30px;
-  background:#e6e6fa;
   border-radius: 15px;
-  
-  
+  padding: 40px 30px;
+  background: #e6e6fa;
 }
 
 .btn-success{
@@ -33,12 +31,7 @@ body{
   margin-bottom: 10px;
 }
 
-/*p{
-	text-align: center;
+.my-col{
+	padding-top: 6rem;
 }
-
-.form-group{
-  position: relative;
-  margin-bottom: 15px;
-}*/
 
